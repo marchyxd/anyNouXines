@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="css/any-nou-xines.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .language-selector select {
+            background: transparent;
+            border: 1px solid #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+    <div class="language-selector">
+        <select id="language-select">
+            <option value="cat" selected>CAT</option>
+            <option value="es">ES</option>
+            <option value="cn">CN</option>
+        </select>
+    </div>
+
     <!-- 返回首页按钮 -->
     <a href="index.html" class="back-home-btn">
         <i class="fas fa-arrow-left"></i> Tornar Inici
@@ -124,6 +146,14 @@
     </div>
 
     <script>
+        // 语言选择器逻辑
+        const languageSelect = document.getElementById('language-select');
+        languageSelect.addEventListener('change', (e) => {
+            const selectedLanguage = e.target.value;
+            // 这里可以添加语言切换的逻辑
+            console.log(`Selected language: ${selectedLanguage}`);
+        });
+
         // 淡入效果的 JavaScript
         function checkFadeIn() {
             const fadeElements = document.querySelectorAll('.fade-in');
