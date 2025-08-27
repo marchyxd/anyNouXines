@@ -1050,3 +1050,338 @@ document.addEventListener('click', (e) => {
     color: #666;
     line-height: 1.6;
 }
+
+/* 平板横屏适配 */
+@media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    /* 导航栏调整 */
+    .main-nav {
+        padding: 0 3%;
+    }
+
+    .nav-links li {
+        margin: 0 10px;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    /* 英雄区域调整 */
+    .hero {
+        padding: 50px 3%;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    /* 网格布局调整 */
+    .event-grid, .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .event-card img, .gallery-grid img {
+        height: 200px;
+    }
+
+    /* 关于部分调整 */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content img {
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    /* 信息卡片调整 */
+    .info-card {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .info-image {
+        height: 250px;
+    }
+
+    /* 时刻轮播调整 */
+    .moments-carousel {
+        max-width: 90%;
+    }
+
+    .moment-item {
+        width: 250px;
+        height: 250px;
+    }
+
+    .moments-year {
+        font-size: 1.5rem;
+    }
+
+    /* FAQ部分调整 */
+    .faq-section {
+        max-width: 90%;
+        margin: 1rem auto;
+    }
+
+    .faq-question h3 {
+        font-size: 0.9rem;
+    }
+
+    /* 页脚调整 */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-logo img {
+        max-width: 150px;
+    }
+}
+
+/* 移动设备适配 */
+@media screen and (max-width: 767px) {
+    /* 全局布局调整 */
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* 导航栏调整 */
+    .header {
+        padding: 5px 0;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        padding: 0 3%;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .logo-image {
+        max-height: 40px;
+    }
+
+    .nav-wrapper {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: #f0f0f0;
+    }
+
+    .language-selector {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-menu {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    /* 英雄区域调整 */
+    .hero {
+        padding: 30px 3%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .cta-button {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    /* 网格布局调整 */
+    .event-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .event-card img, .gallery-grid img {
+        height: 250px;
+        border-radius: 8px;
+    }
+
+    /* 关于部分调整 */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-content img {
+        max-width: 100%;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    /* 信息卡片调整 */
+    .info-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .info-image {
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    .info-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .info-text p {
+        font-size: 0.9rem;
+    }
+
+    .info-button {
+        margin-top: 10px;
+    }
+
+    /* 时刻轮播调整 */
+    .moments-section {
+        padding: 30px 0;
+    }
+
+    .moments-carousel {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .moments-wrapper {
+        height: 300px;
+    }
+
+    .moment-item {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    .moment-item:nth-child(1) {
+        left: -30px;
+        transform: translateX(-50%) scale(0.7);
+    }
+
+    .moment-item:nth-child(2) {
+        left: 50%;
+        transform: translateX(-50%) scale(1);
+    }
+
+    .moment-item:nth-child(3) {
+        right: -30px;
+        transform: translateX(50%) scale(0.7);
+    }
+
+    .moments-year {
+        font-size: 1.2rem;
+    }
+
+    /* FAQ部分调整 */
+    .faq-section {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .faq-question h3 {
+        font-size: 0.85rem;
+    }
+
+    .faq-answer p {
+        font-size: 0.8rem;
+    }
+
+    /* 页脚调整 */
+    .footer-background {
+        padding: 30px 3%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .social-logo img {
+        max-width: 120px;
+    }
+
+    .social-icons {
+        gap: 15px;
+    }
+
+    .social-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer-copyright {
+        font-size: 0.8rem;
+    }
+
+    /* 赞助商调整 */
+    .footer-sponsors {
+        padding: 20px 0;
+    }
+
+    .sponsor-logos {
+        gap: 15px;
+    }
+
+    .sponsor-logos img {
+        max-height: 30px;
+        max-width: 80px;
+    }
+
+    /* 错误页面调整 */
+    .error-container {
+        padding: 0 15px;
+    }
+
+    .error-code {
+        font-size: 6rem;
+        letter-spacing: -3px;
+    }
+
+    .error-message {
+        font-size: 0.9rem;
+    }
+}
