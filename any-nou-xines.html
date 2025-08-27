@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any Nou Xinés</title>
+    <link rel="stylesheet" href="css/any-nou-xines.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 返回首页按钮 -->
+    <a href="index.html" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i> Tornar Inici
+    </a>
+
+    <div class="horizontal-scroll-container">
+        <!-- 第一部分：历史起源 -->
+        <section id="historia-origen" class="scroll-section">
+            <div class="historia-content">
+                <div class="historia-tree fade-in">
+                    <img src="assets/images/any.xines/meihua.gif" alt="Arbre de Meihua" class="meihua-tree">
+                </div>
+                <div class="historia-details">
+                    <div class="historia-text fade-in">
+                        <h1 class="section-title">Història i Origen</h1>
+                        <p class="section-description">
+                            L'Any Nou Xinès és la festivitat més important del calendari lunar xinès, amb més de quatre mil anys d'història. 
+                            Marca l'inici de la primavera i és un moment de renovació, retrobament familiar i bons desitjos.
+                        </p>
+                    </div>
+                    <div class="historia-image fade-in">
+                        <img src="assets/images/any.xines/dryxt.gif" alt="Nens tradicionals xinesos" class="tradicio-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二部分：历史起源的延续 -->
+        <section id="historia-continuacio" class="scroll-section">
+            <div class="historia-content">
+                <div class="top-text fade-in">
+                    <p class="section-description">
+                        <span class="initial-letter">S</span>egons la llegenda, fa molts segles una criatura anomenada 
+                        <span class="highlight-nian">Nian</span> baixava cada any als pobles per espantar la gent i el bestiar.
+                    </p>
+                </div>
+                
+                <div class="middle-text fade-in">
+                    <p class="section-description">
+                        Els habitants van descobrir que la bèstia tenia por del soroll 
+                        <span class="highlight-fort">fort</span> i del color <span class="highlight-vermell">vermell</span>.
+                    </p>
+                </div>
+                
+                <div class="historia-tree fade-in">
+                    <img src="assets/images/any.xines/shiwu0002.png" alt="Llegenda del Nian" class="meihua-tree">
+                </div>
+                
+                <div class="bottom-text fade-in">
+                    <p class="section-description">
+                        Per això, van començar a encendre focs artificials i a decorar les cases amb papers vermells, 
+                        costums que han arribat fins avui com a símbol de <span class="highlight-proteccio">protecció</span> i <span class="highlight-prosperitat">prosperitat</span>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三部分：庆祝 -->
+        <section id="celebracio" class="scroll-section">
+            <div class="historia-content">
+                <div class="top-text fade-in">
+                    <p class="section-description">
+                        <span class="initial-letter">A</span> més de la seva llegenda, l'Any Nou Xinès ha evolucionat fins a convertir-se 
+                        en una celebració plena de rituals i traditions:
+                    </p>
+                </div>
+                
+                <div class="middle-text fade-in">
+                    <p class="section-description">
+                        des de la <span class="highlight-dansa">dansa del drac</span> 
+                        i del <span class="highlight-lleo">lleó</span>,
+                    </p>
+                </div>
+                
+                <div class="historia-tree fade-in">
+                    <img src="assets/images/any.xines/lion.png" alt="Dansa del Lleó" class="meihua-tree lion-image">
+                    <img src="assets/images/any.xines/dos mujeres.png" alt="Dones en celebració" class="meihua-tree women-image">
+                </div>
+                
+                <div class="bottom-text fade-in">
+                    <p class="section-description">
+                        fins reunions familiars, les decoracions vermelles i els famosos 
+                        <span class="highlight-sobres">sobres amb diners</span> 
+                        (<span class="highlight-hongbao">hóngbāo 红包</span>), 
+                        que desitgen sort i felicitat per al nou any.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四部分：全球庆祝 -->
+        <section id="global-celebration" class="scroll-section">
+            <div class="historia-content">
+                <div class="top-text fade-in">
+                    <p class="section-description">
+                        <span class="initial-letter">A</span>vui dia, aquesta festa no nomès se celebra a la Xina, sinó també arreu del món.
+                    </p>
+                </div>
+                
+                <div class="historia-tree fade-in">
+                    <img src="assets/images/any.xines/final.jpg" alt="Celebració global de l'Any Nou Xinès" class="final-image">
+                </div>
+                
+                <div class="bottom-text fade-in">
+                    <p class="section-description">
+                        A <span class="highlight-barcelona">Barcelona</span>, 
+                        esdevé un espai de trobada intercultural que uneix comunitats i acosta les 
+                        tradicions xineses a tota la ciutadania.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 淡入效果的 JavaScript
+        function checkFadeIn() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const isVisible = (elementTop < window.innerHeight) && (elementBottom >= 0);
+                
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // 监听滚动事件
+        window.addEventListener('scroll', checkFadeIn);
+        window.addEventListener('load', checkFadeIn);
+    </script>
+</body>
+</html>

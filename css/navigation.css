@@ -1,0 +1,90 @@
+/* 导航栏整体布局 */
+.header {
+    background-color: #f0f4f0;
+    box-shadow: none;
+    padding: 10px 0;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.logo .logo-image {
+    max-height: 50px;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff6b6b;
+}
+
+.nav-wrapper p {
+    margin: 0 15px;
+    color: #ccc;
+}
+
+.language-selector select {
+    background: transparent;
+    border: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-wrapper.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+    }
+}
+
+
+
+

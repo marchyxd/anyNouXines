@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any Nou Xinés</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="#home">
+                    <img src="assets/images/logo.png" alt="Any Nou Xinés Logo" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="nav-links">
+                    <li><a href="/project/web/any-nou-xines.html" class="nav-link">ANY NOU XINÈS</a></li>
+                    <li><a href="/project/web/404.html" class="nav-link">ACTIVITATS</a></li>
+                    <li class="dropdown">
+                        <a href="#galeria" class="nav-link">GALERIA</a>
+                        <div class="dropdown-content">
+                            <a href="galeria-2025.html" class="dropdown-item">2025</a>
+                            <a href="#galeria-2024" class="dropdown-item">2024</a>
+                            <a href="#galeria-2023" class="dropdown-item">2023</a>
+                            <a href="#galeria-2022" class="dropdown-item">2022</a>
+                        </div>
+                    </li>
+                    <li><a href="/project/web/qui-som.html" class="nav-link">QUI SOM</a></li>
+                </ul>
+                <p>|</p>
+                <div class="nav-actions">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="cat" selected>CAT</option>
+                            <option value="es">ES</option>
+                            <option value="en">EN</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>2025 龙年新春庆典</h1>
+                <p>欢迎来到中国新年庆祝活动！</p>
+                <a href="#events" class="cta-button">查看活动</a>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-container">
+                <div class="info-card">
+                    <div class="info-image"></div>
+                    <div class="info-text">
+                        <h2>ANY NOU XINÈS</h2>
+                        <p>L'Any Nou Xinès és un viatge de colors, llums i tradicions.</p>
+                        <p>Una festa que reuneix famílies, celebra la renovació i obre un pont entre la cultura xinesa i Barcelona, per començar l'any amb esperança i bons desitjos.</p>
+                        <a href="#" class="info-button">Coneix la cultura</a>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-text">
+                        <h2>ANY DEL CAVALL - 2026</h2>
+                        <p>El zodiac xinès és un cicle de 12 animals, i cada un d'ells marca l'energia i els trets que inspiren la vida.</p>
+                        <p>El Cavall simbolitza llibertat i passió. El 2026 ens convida a avançar amb energia, valentia i confiança cap a nous horitzons.</p>
+                        <a href="#" class="info-button">Descobreix el teu Zodiac Xinès</a>
+                    </div>
+                    <div class="info-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="moments-section">
+            <h2>MOMENTS DE L'ANY NOU XINÈS</h2>
+            <div class="carousel" aria-roledescription="carousel" aria-label="Moments de l'Any Nou Xinès">
+                <div class="track" id="track" role="list"></div>
+
+                <div class="controls" aria-hidden="true">
+                    <button class="btn prev" title="Anterior" aria-label="Anterior">❮</button>
+                    <button class="btn next" title="Següent" aria-label="Següent">❯</button>
+                </div>
+
+                <div class="dots" id="dots" aria-label="Indicadors"></div>
+                <p class="visually-hidden" id="sr-status" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <style>
+        :root {
+            --size: 220px;
+            --step: 120px;
+            --shadow: 80px;
+            --speed: 420ms;
+            --bg: #f6f6f6;
+        }
+
+        .moments-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .moments-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .carousel {
+            position: relative;
+            width: min(100%, 960px);
+            margin-inline: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 64px 0;
+            isolation: isolate;
+        }
+
+        .track {
+            position: relative;
+            height: calc(var(--size) + var(--shadow)*2);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+            clip-path: circle(50% at 50% 50%);
+            overflow: hidden;
+            z-index: 1;
+            transition: transform var(--speed) ease, z-index var(--speed) ease, filter var(--speed) ease;
+            filter: drop-shadow(0 0 var(--shadow) rgb(0 0 0 / .35));
+            background: #ddd center/cover no-repeat;
+        }
+
+        .slot.active {
+            transform: translate(calc(-50% + 0px), -50%) scale(1.08);
+            z-index: 9;
+            filter: drop-shadow(0 0 calc(var(--shadow)*1.25) rgb(0 0 0 / .5));
+        }
+
+        .controls {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            pointer-events: auto;
+            appearance: none;
+            border: none;
+            background: #fff;
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgb(0 0 0 / .15);
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgb(0 0 0 / .2);
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 28px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #bbb;
+            opacity: .6;
+            cursor: pointer;
+        }
+
+        .dot[aria-current="true"] {
+            background: #222;
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            :root {
+                --size: 160px;
+                --step: 90px;
+                --shadow: 64px;
+            }
+        }
+        </style>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = [
+                'assets/images/2025.jpg', 
+                'assets/images/2023.webp', 
+                'assets/images/2022.png', 
+                'assets/images/2021.jpeg', 
+                'assets/images/2017.jpg',
+                'assets/images/2014.jpg',
+                'assets/images/2025.jpg'
+            ];
+
+            const VISIBLE = 5;
+            const HALF = (VISIBLE - 1) / 2;
+
+            const track = document.getElementById('track');
+            const dotsWrap = document.getElementById('dots');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            const srStatus = document.getElementById('sr-status');
+
+            // Generate 5 fixed slots
+            const slots = Array.from({length: VISIBLE}, () => {
+                const el = document.createElement('figure');
+                el.className = 'slot';
+                el.setAttribute('role', 'listitem');
+                track.appendChild(el);
+                return el;
+            });
+
+            // Generate dots
+            images.forEach((_, i) => {
+                const d = document.createElement('span');
+                d.className = 'dot';
+                d.role = 'button';
+                d.tabIndex = 0;
+                d.ariaLabel = `Anar a l'element ${i+1}`;
+                d.addEventListener('click', () => goTo(i));
+                d.addEventListener('keydown', (e) => { 
+                    if(e.key === 'Enter' || e.key === ' '){ 
+                        goTo(i); 
+                    }
+                });
+                dotsWrap.appendChild(d);
+            });
+
+            let index = 0;
+
+            function mod(n, m){ return ((n % m) + m) % m; }
+
+            function setSlotStyle(el, realIdx) {
+                el.style.backgroundImage = `url(${images[realIdx]})`;
+            }
+
+            function layout() {
+                const step = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--step'));
+                for(let i = -HALF; i <= HALF; i++) {
+                    const el = slots[i+HALF];
+                    const x = i * step;
+                    const realIdx = mod(index + i, images.length);
+
+                    el.style.transform = `translate(calc(-50% + ${x}px), -50%) scale(${i===0?1.08:1})`;
+                    el.style.zIndex = (VISIBLE + 1) - Math.abs(i);
+                    el.classList.toggle('active', i===0);
+
+                    setSlotStyle(el, realIdx);
+                }
+                updateDots();
+                srStatus.textContent = `Element ${index+1} / ${images.length}`;
+            }
+
+            function goTo(i){ index = mod(i, images.length); layout(); }
+            function next(){ goTo(index + 1); }
+            function prev(){ goTo(index - 1); }
+
+            nextBtn.addEventListener('click', next);
+            prevBtn.addEventListener('click', prev);
+            document.addEventListener('keydown', (e) => { 
+                if(e.key === 'ArrowRight') next(); 
+                if(e.key === 'ArrowLeft') prev(); 
+            });
+
+            // Drag / Swipe
+            let startX = null;
+            track.addEventListener('pointerdown', (e) => { startX = e.clientX; });
+            window.addEventListener('pointerup', (e) => {
+                if(startX === null) return;
+                const dx = e.clientX - startX;
+                startX = null;
+                if(Math.abs(dx) < 24) return;
+                dx < 0 ? next() : prev();
+            });
+
+            function updateDots() {
+                const dots = dotsWrap.querySelectorAll('.dot');
+                dots.forEach((d,i) => d.setAttribute('aria-current', i===index));
+            }
+
+            // Auto-play
+            let timer = setInterval(next, 2800);
+            ['pointerdown','keydown','click','focusin'].forEach(evt => {
+                document.addEventListener(evt, () => { 
+                    clearInterval(timer); 
+                    timer = null; 
+                }, { once: true });
+            });
+
+            layout();
+        });
+        </script>
+
+        <section class="faq-section">
+            <h2>PREGUNTES FREQÜENTS (FAQ)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>1. Quan se celebra l'Any Nou Xinès a Barcelona?</h3>
+                        <button class="faq-toggle">
+                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cada any la data canvia perquè segueix el calendari lunar. A Barcelona, la celebració se sol fer al febrer amb desfilades, tallers i espectacles.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>2. On tenen lloc les activitats principals?</h3>
+                        <button class="faq-toggle">
+                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>El punt central és el Passeig de Lluís Companys i l'Arc de Triomf, però també hi ha activitats a diferents barris i centres culturals.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>3. Cal pagar entrada?</h3>
+                        <button class="faq-toggle">
+                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, totes les activitats són gratuïtes i obertes a tothom.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>4. Puc participar encara que no sigui de la comunitat xinesa?</h3>
+                        <button class="faq-toggle">
+                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                        </button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí! La festa està oberta a tothom.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-sponsors">
+            <div class="sponsor-logos-container">
+                <div class="sponsor-logos">
+                    <img src="assets/images/Ajuntament-de-Barcelona.jpg" alt="Ajuntament de Barcelona">
+                    <img src="assets/images/Haier_logo.svg.png" alt="Haier">
+                    <img src="assets/images/elcym.png" alt="Assessoria Elcym">
+                    <img src="assets/images/metis.webp" alt="Media Logo">
+                </div>
+            </div>
+        </div>
+        <div class="footer-background">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <div class="social-logo">
+                        <img src="assets/images/logo.png" alt="Social Logo">
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><img src="assets/images/instagram.png" alt="Instagram"></a>
+                        <a href="#" class="social-icon"><img src="assets/images/instagram.png" alt="Instagram"></a>
+                        <a href="#" class="social-icon"><img src="assets/images/instagram.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2025, Any Nou Xinès amb Barcelona 2025. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 移动菜单交互（有检查以避免 null 错误）
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navWrapper = document.querySelector('.nav-wrapper');
+
+        if (mobileMenu && navWrapper) {
+            mobileMenu.addEventListener('click', () => {
+                navWrapper.classList.toggle('active');
+            });
+        }
+
+        // 导航链接交互（安全绑定）
+        const navLinks = document.querySelectorAll('.nav-link');
+        if (navLinks && navLinks.length) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // 检查是否是外部页面链接
+                    if (link.getAttribute('href').endsWith('.html')) {
+                        e.preventDefault(); // 阻止默认跳转
+                        window.location.href = link.getAttribute('href'); // 手动跳转
+                    }
+                });
+            });
+        }
+
+        // FAQ 交互（有检查）
+        const faqItems = document.querySelectorAll('.faq-item');
+        if (faqItems && faqItems.length) {
+            faqItems.forEach(item => {
+                const toggle = item.querySelector('.faq-toggle');
+                const answer = item.querySelector('.faq-answer');
+
+                if (!toggle) return;
+
+                toggle.addEventListener('click', () => {
+                    // Toggle the answer
+                    if (answer) answer.classList.toggle('active');
+                    
+                    // Toggle the active state on the parent item
+                    item.classList.toggle('active');
+                });
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sponsorLogos = document.querySelector('.sponsor-logos');
+            const logos = Array.from(sponsorLogos.children);
+            let currentIndex = 0;
+
+            function rotateLogos() {
+                // 移除第一个 Logo 并添加到末尾
+                const firstLogo = logos.shift();
+                sponsorLogos.appendChild(firstLogo);
+                logos.push(firstLogo);
+                
+                currentIndex = (currentIndex + 1) % logos.length;
+            }
+
+            // 每 3 秒轮换一次 Logo
+            setInterval(rotateLogos, 1500);
+        });
+    </script>
+</body>
+</html>
