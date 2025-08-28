@@ -13,6 +13,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 50px 5%;
+            width: 100%;
+            box-sizing: border-box;
         }
         .impulsors-section {
             margin-bottom: 40px;
@@ -41,12 +43,23 @@
         }
         .impulsors-gallery {
             background-color: #E0E0E0;
-            height: 300px;
             margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .impulsors-gallery img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            width: 100%;
         }
         .contact {
             max-width: 100%;
             margin: 0 auto;
+            padding: 2rem 0;
         }
         .contact h2 {
             font-size: 36px;
@@ -55,45 +68,69 @@
             margin-bottom: 2rem;
             color: #000;
         }
-        .contact-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .contact-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 90%;
         }
         .contact-info-details {
-            color: #000;
-            line-height: 1.6;
+            flex: 1;
+            background-color: #FF6347;
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .contact-info-details p {
-            margin: 0;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        .contact-form-wrapper {
+            flex: 1;
+            padding: 2rem;
         }
         .contact-form {
             display: grid;
             gap: 1.5rem;
         }
         .contact-form .form-group {
-            display: grid;
-            gap: 0.5rem;
+            position: relative;
         }
         .contact-form label {
+            position: absolute;
+            top: -20px;
+            left: 0;
             color: #666;
             font-size: 0.9rem;
-            display: none;
+            transition: all 0.3s ease;
+            opacity: 0;
         }
         .contact-form input,
         .contact-form textarea {
             width: 100%;
             border: none;
-            border-bottom: 1px solid #ccc;
-            padding: 0.5rem 0;
+            border-bottom: 2px solid #ccc;
+            padding: 0.75rem 0;
             font-size: 1rem;
             outline: none;
             transition: border-color 0.3s ease;
+            background-color: transparent;
         }
         .contact-form input:focus,
         .contact-form textarea:focus {
-            border-bottom-color: #000;
+            border-bottom-color: #FF6347;
+        }
+        .contact-form input:focus + label,
+        .contact-form textarea:focus + label {
+            top: -30px;
+            opacity: 1;
+            color: #FF6347;
         }
         .contact-form textarea {
             resize: vertical;
@@ -106,16 +143,19 @@
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
             cursor: pointer;
-            justify-self: end;
-            transition: background-color 0.3s ease;
-            margin-top: 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
         }
         .contact-form button:hover {
             background-color: #FF4500;
+            transform: translateY(-2px);
         }
 
         .sponsors-section {
-            margin-top: 3rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 5%;
         }
         .sponsors-section h3 {
             text-align: center;
@@ -165,20 +205,66 @@
         .more-info-button:hover {
             background-color: #FF4500;
         }
+
+        /* 响应式媒体查�?*/
+        @media screen and (max-width: 1024px) {
+            .container {
+                padding: 30px 4%;
+            }
+            .contact-container {
+                width: 95%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px 3%;
+            }
+            .impulsors-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .contact-container {
+                flex-direction: column;
+                width: 100%;
+                margin: 0 1rem;
+            }
+            .impulsors-section h1 {
+                font-size: 28px;
+            }
+            .sponsors-section {
+                padding: 0 3%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 15px 2%;
+            }
+            .impulsors-section h1 {
+                font-size: 24px;
+            }
+            .contact h2 {
+                font-size: 28px;
+            }
+            .sponsors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="main-nav">
             <div class="logo">
-                <a href="#home">
+                <a href="index.html">
                     <img src="assets/images/logo.png" alt="Any Nou Xinés Logo" class="logo-image">
                 </a>
             </div>
             <div class="nav-wrapper">
                 <ul class="nav-links">
-                    <li><a href="/project/web/any-nou-xines.html" class="nav-link">ANY NOU XINÈS</a></li>
-                    <li><a href="/project/web/404.html" class="nav-link">ACTIVITATS</a></li>
+                    <li><a href="any-nou-xines.html" class="nav-link">ANY NOU XINÈS</a></li>
+                    <li><a href="404.html" class="nav-link">ACTIVITATS</a></li>
                     <li class="dropdown">
                         <a href="#galeria" class="nav-link">GALERIA</a>
                         <div class="dropdown-content">
@@ -188,7 +274,7 @@
                             <a href="#galeria-2022" class="dropdown-item">2022</a>
                         </div>
                     </li>
-                    <li><a href="/project/web/qui-som.html" class="nav-link">QUI SOM</a></li>
+                    <li><a href="qui-som.html" class="nav-link">QUI SOM</a></li>
                 </ul>
                 <p>|</p>
                 <div class="nav-actions">
@@ -212,35 +298,37 @@
             <h1>IMPULSORS DE L'ANY NOU XINÈS AMB BARCELONA</h1>
             <div class="impulsors-content">
                 <p>L'Any Nou Xinès amb Barcelona és una celebració impulsada conjuntament per l'Associació d'Artistes Huaxing, la Fundació Institut Confuci de Barcelona i Casa Àsia, amb el suport de l'Ajuntament i del Consolat General de la R.P. Xina.</p>
-                <p>Més enllà de la seva organització, es tracta d'un esdeveniment cultural obert a tota la ciutadania, que porta a Barcelona les traditions xineses com la dansa del drac, la gastronomia, la música— i segueix sent un espai de convivència i enriquiment intercultural.</p>
+                <p>Més enllà de la seva organització, es tracta d'un esdeveniment cultural obert a tota la ciutadania, que porta a Barcelona les traditions xineses com la dansa del drac, la gastronomia, la música - i segueix sent un espai de convivència i enriquiment intercultural.</p>
             </div>
         </section>
 
-        <section class="impulsors-gallery"></section>
+        <section class="impulsors-gallery"><img src="assets/images/quiSom/Rectangle 93.jpg" alt=""></section>
 
         <section class="contact">
             <h2>CONTACTA AMB NOSALTRES</h2>
-            <div class="contact-info">
+            <div class="contact-container">
                 <div class="contact-info-details">
                     <p><strong>Responsable del Tractament</strong><br>Associació Grupo Artistas Huaxing</p>
                     <p><strong>Adreça</strong><br>Passeig Sant Joan, 34, Local - Barcelona</p>
                     <p><strong>Correu Electrònic</strong><br>hola@anynouxines.barcelona</p>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="nom">Nom i Cognom</label>
-                        <input type="text" id="nom" name="nom" placeholder="Nom i Cognom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correu electrònic</label>
-                        <input type="email" id="email" name="email" placeholder="Correu electrònic" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="missatge">Missatge</label>
-                        <textarea id="missatge" name="missatge" placeholder="Missatge" required></textarea>
-                    </div>
-                    <button type="submit">Enviar</button>
-                </form>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="nom">Nom i Cognom</label>
+                            <input type="text" id="nom" name="nom" placeholder="Nom i Cognom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correu electrònic</label>
+                            <input type="email" id="email" name="email" placeholder="Correu electrònic" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="missatge">Missatge</label>
+                            <textarea id="missatge" name="missatge" placeholder="Missatge" required></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -248,61 +336,55 @@
             <h3>Organitza</h3>
             <div class="sponsors-grid">
                 <div class="sponsor-logo">
-                    <img src="assets/images/huaxing-logo.png" alt="Associació Grupo Artistas Huaxing">
+                    <img src="assets/images/quiSom/organitza.png" alt="Associació Grupo Artistas Huaxing">
                 </div>
             </div>
 
             <h3>Amb el suport de</h3>
             <div class="sponsors-grid">
                 <div class="sponsor-logo">
-                    <img src="assets/images/casa-asia-logo.png" alt="Casa Àsia">
+                    <img src="assets/images/quiSom/casa asia.png" alt="Casa Àsia">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/institut-confuci-logo.png" alt="Institut Confuci de Barcelona">
+                    <img src="assets/images/quiSom/confuci.png" alt="Institut Confuci de Barcelona">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/ajuntament-barcelona-logo.png" alt="Ajuntament de Barcelona">
+                    <img src="assets/images/quiSom/ajuntamiento.png" alt="Ajuntament de Barcelona">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/consolat-xina-logo.png" alt="Consolat General de la R.P. Xina">
+                    <img src="assets/images/quiSom/consolado general de china .png" alt="Consolat General de la R.P. Xina">
                 </div>
             </div>
 
             <h3>Patrocinadors</h3>
             <div class="sponsors-grid">
                 <div class="sponsor-logo">
-                    <img src="assets/images/casa-asia-logo.png" alt="Casa Àsia">
+                    <img src="assets/images/quiSom/assessoria del cym.png" alt="a">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/institut-confuci-logo.png" alt="Institut Confuci de Barcelona">
+                    <img src="assets/images/quiSom/teapanda (1).png" alt="a">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/ajuntament-barcelona-logo.png" alt="Ajuntament de Barcelona">
+                    <img src="assets/images/quiSom/LOGO1.webp" alt="a">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/consolat-xina-logo.png" alt="Consolat General de la R.P. Xina">
+                    <img src="assets/images/quiSom/Haier_logo.svg.png" alt="a">
                 </div>
             </div>
 
             <h3>Col·labora</h3>
             <div class="sponsors-grid">
                 <div class="sponsor-logo">
-                    <img src="assets/images/casa-asia-logo.png" alt="Casa Àsia">
+                    <img src="assets/images/quiSom/casa asia.png" alt="Casa Àsia">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/institut-confuci-logo.png" alt="Institut Confuci de Barcelona">
+                    <img src="assets/images/quiSom/confuci.png" alt="Institut Confuci de Barcelona">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/ajuntament-barcelona-logo.png" alt="Ajuntament de Barcelona">
+                    <img src="assets/images/quiSom/ajuntamiento.png" alt="Ajuntament de Barcelona">
                 </div>
                 <div class="sponsor-logo">
-                    <img src="assets/images/consolat-xina-logo.png" alt="Consolat General de la R.P. Xina">
-                </div>
-                <div class="sponsor-logo">
-                    <img src="assets/images/casa-asia-logo.png" alt="Casa Àsia">
-                </div>
-                <div class="sponsor-logo">
-                    <img src="assets/images/institut-confuci-logo.png" alt="Institut Confuci de Barcelona">
+                    <img src="assets/images/quiSom/consolado general de china .png" alt="Consolat General de la R.P. Xina">
                 </div>
             </div>
 
@@ -312,7 +394,7 @@
 
     <script src="js/main.js"></script>
     <script>
-        // 移动菜单交互（有检查以避免 null 错误）
+        // 移动菜单交互（有检查以避免 null 错误�?
         const mobileMenu = document.querySelector('.mobile-menu');
         const navWrapper = document.querySelector('.nav-wrapper');
 
@@ -338,3 +420,7 @@
     </script>
 </body>
 </html>
+
+
+
+

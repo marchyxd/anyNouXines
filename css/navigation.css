@@ -1,6 +1,6 @@
 /* 导航栏整体布局 */
 .header {
-    background-color: #f0f4f0;
+    background-color: transparent;
     box-shadow: none;
     padding: 10px 0;
 }
@@ -11,16 +11,24 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 12px 5%;
+    height: 64px;
+    background-color: transparent;
 }
 
 .logo .logo-image {
-    max-height: 50px;
+    max-height: 48px;
+    transition: transform 0.2s ease;
+}
+
+.logo .logo-image:hover {
+    transform: scale(1.05);
 }
 
 .nav-wrapper {
     display: flex;
     align-items: center;
+    background-color: transparent;
 }
 
 .nav-links {
@@ -28,60 +36,223 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    gap: 24px;
+    background-color: transparent;
 }
 
-.nav-links li {
-    margin: 0 15px;
+.nav-links > li {
+    position: relative;
+    background-color: transparent;
 }
 
 .nav-link {
     text-decoration: none;
     color: #333;
     text-transform: uppercase;
+    font-weight: 600;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    transition: color 0.3s ease;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+    background-color: transparent;
 }
 
 .nav-link:hover {
-    color: #ff6b6b;
+    color: #ff6347;
 }
 
-.nav-wrapper p {
-    margin: 0 15px;
-    color: #ccc;
+.dropdown {
+    position: relative;
+    background-color: transparent;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 8px 0;
+    z-index: 10;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content .dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+    background-color: transparent;
+}
+
+.dropdown-content .dropdown-item:hover {
+    background-color: #f4f4f4;
+}
+
+.language-selector {
+    position: relative;
+    display: inline-block;
+    margin-left: 16px;
+    background-color: transparent;
 }
 
 .language-selector select {
-    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
     border: none;
+    color: #333;
+    padding: 8px 32px 8px 12px;
     font-size: 0.9rem;
     text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative;
+    outline: none;
+    background-color: transparent;
+}
+
+.language-selector select:focus {
+    outline: none;
+}
+
+
+.selected-lang {
+    background: none;
+    border: none;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s ease;
+}
+
+.selected-lang:hover {
+    color: #ff6347;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    min-width: 100px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 8px 0;
+    z-index: 10;
+    animation: fadeIn 0.2s ease;
+}
+
+.language-selector:hover .language-dropdown {
+    display: block;
+}
+
+.language-option {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease;
+}
+
+.language-option:hover {
+    background-color: #f4f4f4;
 }
 
 .mobile-menu {
     display: none;
+    cursor: pointer;
 }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
+.menu-icon {
+    font-size: 24px;
+    color: #333;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
     .nav-wrapper {
         display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+
+    .nav-links > li {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        background-color: #f9f9f9;
+    }
+
+    .dropdown:hover .dropdown-content,
+    .dropdown.active .dropdown-content {
+        display: block;
     }
 
     .mobile-menu {
         display: block;
-        cursor: pointer;
     }
 
-    .nav-wrapper.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
+    .language-selector {
+        margin-left: 0;
+        margin-top: 10px;
+        background-color: transparent;
+    }
+
+    .language-selector select {
         width: 100%;
-        background-color: white;
+        padding: 8px 32px 8px 12px;
+        background-color: transparent;
+    }
+
+    .language-dropdown {
+        position: static;
+        display: none;
+        background-color: #f9f9f9;
     }
 }
 

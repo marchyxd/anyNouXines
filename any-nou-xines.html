@@ -20,6 +20,48 @@
             padding: 5px 10px;
             border-radius: 5px;
         }
+
+        /* 新增的章节导航样�?*/
+        .section-navigation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section-navigation .nav-btn {
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .section-navigation .nav-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        .section-navigation .nav-btn i {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .section-navigation .nav-btn.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -36,8 +78,18 @@
         <i class="fas fa-arrow-left"></i> Tornar Inici
     </a>
 
+    <!-- 章节导航按钮 -->
+    <div class="section-navigation">
+        <button class="nav-btn prev-section" aria-label="Secció anterior">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-btn next-section" aria-label="Secció següent">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
     <div class="horizontal-scroll-container">
-        <!-- 第一部分：历史起源 -->
+        <!-- 第一部分：历史起�?-->
         <section id="historia-origen" class="scroll-section">
             <div class="historia-content">
                 <div class="historia-tree fade-in">
@@ -88,7 +140,7 @@
             </div>
         </section>
 
-        <!-- 第三部分：庆祝 -->
+        <!-- 第三部分：庆�?-->
         <section id="celebracio" class="scroll-section">
             <div class="historia-content">
                 <div class="top-text fade-in">
@@ -121,7 +173,7 @@
             </div>
         </section>
 
-        <!-- 第四部分：全球庆祝 -->
+        <!-- 第四部分：全球庆�?-->
         <section id="global-celebration" class="scroll-section">
             <div class="historia-content">
                 <div class="top-text fade-in">
@@ -154,7 +206,7 @@
             console.log(`Selected language: ${selectedLanguage}`);
         });
 
-        // 淡入效果的 JavaScript
+        // 淡入效果�?JavaScript
         function checkFadeIn() {
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach(element => {
@@ -171,6 +223,59 @@
         // 监听滚动事件
         window.addEventListener('scroll', checkFadeIn);
         window.addEventListener('load', checkFadeIn);
+
+        // 章节导航逻辑
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.scroll-section');
+            const prevBtn = document.querySelector('.prev-section');
+            const nextBtn = document.querySelector('.next-section');
+            let currentSectionIndex = 0;
+
+            function updateNavigation() {
+                prevBtn.classList.toggle('disabled', currentSectionIndex === 0);
+                nextBtn.classList.toggle('disabled', currentSectionIndex === sections.length - 1);
+            }
+
+            function scrollToSection(index) {
+                if (index >= 0 && index < sections.length) {
+                    sections[index].scrollIntoView({ behavior: 'smooth' });
+                    currentSectionIndex = index;
+                    updateNavigation();
+                }
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentSectionIndex > 0) {
+                    scrollToSection(currentSectionIndex - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentSectionIndex < sections.length - 1) {
+                    scrollToSection(currentSectionIndex + 1);
+                }
+            });
+
+            // 初始化导航状�?            updateNavigation();
+
+            // 检测当前活跃的章节
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        currentSectionIndex = Array.from(sections).indexOf(entry.target);
+                        updateNavigation();
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            sections.forEach(section => observer.observe(section));
+        });
     </script>
 </body>
 </html>
+
+
+
+

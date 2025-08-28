@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Any Nou Xinés</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/navigation.css">
+        <link rel="stylesheet" href="css/galeria-2025.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
 <body>
     <header class="header">
         <nav class="main-nav">
@@ -18,8 +18,8 @@
             </div>
             <div class="nav-wrapper">
                 <ul class="nav-links">
-                    <li><a href="/project/web/any-nou-xines.html" class="nav-link">ANY NOU XINÈS</a></li>
-                    <li><a href="/project/web/404.html" class="nav-link">ACTIVITATS</a></li>
+                    <li><a href="any-nou-xines.html" class="nav-link">ANY NOU XINÈS</a></li>
+                    <li><a href="404.html" class="nav-link">ACTIVITATS</a></li>
                     <li class="dropdown">
                         <a href="#galeria" class="nav-link">GALERIA</a>
                         <div class="dropdown-content">
@@ -29,7 +29,7 @@
                             <a href="#galeria-2022" class="dropdown-item">2022</a>
                         </div>
                     </li>
-                    <li><a href="/project/web/qui-som.html" class="nav-link">QUI SOM</a></li>
+                    <li><a href="qui-som.html" class="nav-link">QUI SOM</a></li>
                 </ul>
                 <p>|</p>
                 <div class="nav-actions">
@@ -37,7 +37,7 @@
                         <select id="language-select">
                             <option value="cat" selected>CAT</option>
                             <option value="es">ES</option>
-                            <option value="cn">CN</option>
+                            <option value="en">EN</option>
                         </select>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1>2025 龙年新春庆典</h1>
-                <p>欢迎来到中国新年庆祝活动！</p>
+                <p>欢迎来到中国新年庆祝活动</p>
                 <a href="#events" class="cta-button">查看活动.</a>
             </div>
         </section>
@@ -87,8 +87,8 @@
                 <div class="track" id="track" role="list"></div>
 
                 <div class="controls" aria-hidden="true">
-                    <button class="btn prev" title="Anterior" aria-label="Anterior">❮</button>
-                    <button class="btn next" title="Següent" aria-label="Següent">❯</button>
+                    <button class="btn prev" title="Anterior" aria-label="Anterior"></button>
+                    <button class="btn next" title="Següent" aria-label="Següent"></button>
                 </div>
 
                 <div class="dots" id="dots" aria-label="Indicadors"></div>
@@ -291,7 +291,8 @@
                     setSlotStyle(el, realIdx);
                 }
                 updateDots();
-                srStatus.textContent = `Element ${index+1} / ${images.length}`;
+                // 移除显示图片数量的文本
+                // srStatus.textContent = `Element ${index+1} / ${images.length}`;
             }
 
             function goTo(i){ index = mod(i, images.length); layout(); }
@@ -416,50 +417,7 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // 移动菜单交互（有检查以避免 null 错误）
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navWrapper = document.querySelector('.nav-wrapper');
-
-        if (mobileMenu && navWrapper) {
-            mobileMenu.addEventListener('click', () => {
-                navWrapper.classList.toggle('active');
-            });
-        }
-
-        // 导航链接交互（安全绑定）
-        const navLinks = document.querySelectorAll('.nav-link');
-        if (navLinks && navLinks.length) {
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    // 检查是否是外部页面链接
-                    if (link.getAttribute('href').endsWith('.html')) {
-                        e.preventDefault(); // 阻止默认跳转
-                        window.location.href = link.getAttribute('href'); // 手动跳转
-                    }
-                });
-            });
-        }
-
-        // FAQ 交互（有检查）
-        const faqItems = document.querySelectorAll('.faq-item');
-        if (faqItems && faqItems.length) {
-            faqItems.forEach(item => {
-                const toggle = item.querySelector('.faq-toggle');
-                const answer = item.querySelector('.faq-answer');
-
-                if (!toggle) return;
-
-                toggle.addEventListener('click', () => {
-                    // Toggle the answer
-                    if (answer) answer.classList.toggle('active');
-                    
-                    // Toggle the active state on the parent item
-                    item.classList.toggle('active');
-                });
-            });
-        }
-    </script>
+    <script src="js/navigation.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sponsorLogos = document.querySelector('.sponsor-logos');
@@ -467,7 +425,7 @@
             let currentIndex = 0;
 
             function rotateLogos() {
-                // 移除第一个 Logo 并添加到末尾
+                // 移除第一�?Logo 并添加到末尾
                 const firstLogo = logos.shift();
                 sponsorLogos.appendChild(firstLogo);
                 logos.push(firstLogo);
@@ -475,9 +433,11 @@
                 currentIndex = (currentIndex + 1) % logos.length;
             }
 
-            // 每 3 秒轮换一次 Logo
+            // �?3 秒轮换一�?Logo
             setInterval(rotateLogos, 1500);
         });
     </script>
 </body>
 </html>
+
+

@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const track = momentsCarousel.querySelector('.moments-wrapper');
     const dotsWrap = momentsCarousel.querySelector('.moments-dots');
+    if (!track || !dotsWrap) return;
 
     // Circular Carousel Setup
     const VISIBLE = 5;

@@ -141,7 +141,6 @@ body, html {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-color: #5a7860;
     color: white;
     border: none;
     padding: 8px 30px 8px 15px;
@@ -159,21 +158,6 @@ body, html {
     text-transform: uppercase;
 }
 
-.language-selector::after {
-    content: '▼';
-    font-size: 8px;
-    color: white;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
-.language-selector select:hover {
-    background-color: #4a6850;
-}
-
 .language-selector select option {
     background-color: white;
     color: #333;
@@ -181,15 +165,7 @@ body, html {
     text-align: center;
 }
 
-/* 自定义下拉菜单样式 */
-.language-selector select:focus {
-    box-shadow: 0 0 5px rgba(90, 120, 96, 0.5);
-}
 
-.language-selector select option:checked {
-    background-color: #5a7860;
-    color: white;
-}
 
 /* 下拉菜单容器 */
 .language-selector {
@@ -906,17 +882,6 @@ body, html {
     }
 }
 
-/* Agregar un indicador visual de dropdown */
-.dropdown .nav-link::after {
-    content: ' ▼';
-    font-size: 0.7rem;
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.dropdown:hover .nav-link::after {
-    transform: rotate(180deg);
-}
 
 /* Asegurar que no interfiera con otros estilos de nav-link */
 .nav-links li:not(.dropdown) a::after {
