@@ -229,6 +229,7 @@
     <script src="js/menu-fix-backup.js"></script>
     <script src="js/mobile-menu-fix.js"></script>
     <script src="js/navigation.js"></script>
+<<<<<<< HEAD
     <script src="js/main.js"></script>
     <script src="js/carousel.js"></script>
     <script src="js/faq.js"></script>
@@ -270,11 +271,56 @@
             }
         }
     </script>
+=======
+    <script src="js/mobile-menu-fix.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/faq.js"></script>
+>>>>>>> da413b58bff9f299fb94f2354221c20899028e68
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Countdown to Chinese New Year
             function updateCountdown() {
                 const countdownElement = document.getElementById('countdown-days');
+<<<<<<< HEAD
+=======
+                
+                // Get current date
+                const currentDate = new Date();
+                
+                // Get next Chinese New Year date (February 17th)
+                // First check if we've already passed Feb 17 in current year
+                const currentYear = currentDate.getFullYear();
+                let chineseNewYearDate = new Date(currentYear, 1, 17); // Month is 0-indexed (1 = February)
+                
+                // If today's date is past Feb 17 of current year, use next year's date
+                if (currentDate > chineseNewYearDate) {
+                    chineseNewYearDate = new Date(currentYear + 1, 1, 17);
+                }
+                
+                // Calculate the difference in days
+                const timeDiff = chineseNewYearDate.getTime() - currentDate.getTime();
+                const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                
+                // Update the countdown element
+                countdownElement.textContent = daysDiff;
+            }
+            
+            // Update countdown immediately
+            updateCountdown();
+            
+            // Update countdown every day
+            setInterval(updateCountdown, 86400000); // 86400000 ms = 24 hours
+            
+            // Sponsor logos rotation
+            const sponsorLogos = document.querySelector('.sponsor-logos');
+            const logos = Array.from(sponsorLogos.children);
+            let currentIndex = 0;
+
+            function rotateLogos() {
+                const firstLogo = logos.shift();
+                sponsorLogos.appendChild(firstLogo);
+                logos.push(firstLogo);
+>>>>>>> da413b58bff9f299fb94f2354221c20899028e68
                 
                 // Get current date
                 const currentDate = new Date();
@@ -323,6 +369,11 @@
     
                 setInterval(rotateLogos, 1500);
             }
+<<<<<<< HEAD
+=======
+
+            setInterval(rotateLogos, 1500);
+>>>>>>> da413b58bff9f299fb94f2354221c20899028e68
         });
     </script>
 </body>
