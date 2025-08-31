@@ -1,0 +1,36 @@
+/* Arreglos específicos para el menú responsive */
+
+/* Asegurarse de que el icono del menú móvil solo aparezca en dispositivos móviles */
+.mobile-menu {
+    display: none !important; /* Oculto por defecto en todos los dispositivos */
+}
+
+/* Mostrar el icono del menú móvil solo en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .mobile-menu {
+        display: flex !important; /* Forzar que se muestre en móvil */
+    }
+}
+
+/* Estilos para cuando el menú está activo */
+.mobile-menu.active i {
+    color: #ff6347; /* Color más visible cuando está activo */
+}
+
+/* Asegurar que el menú desplegable se muestre correctamente */
+@media screen and (max-width: 768px) {
+    .nav-wrapper.active {
+        display: flex !important;
+        z-index: 1000;
+    }
+    
+    /* Mejorar la visibilidad de los elementos del menú */
+    .nav-links > li {
+        background-color: white;
+    }
+    
+    /* Ajustar el espaciado del menú desplegado */
+    .nav-wrapper.active {
+        padding-bottom: 10px;
+    }
+}

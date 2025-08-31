@@ -1,0 +1,25 @@
+/* Fix styles for the fixed top menu */
+body {
+    background-color: #f3eee0 !important; /* Fondo beige claro para todas las páginas - importante para sobrescribir otros estilos */
+}
+
+/* Make sure the navbar is always on top */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999 !important;
+}
+
+/* Clear any conflicting header styles */
+.header {
+    display: none !important;
+}
+
+/* Fix for potential conflicts with padding */
+main {
+    padding-top: 0;
+}

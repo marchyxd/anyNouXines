@@ -1,0 +1,107 @@
+/* New Footer Styles with gradient background */
+.new-footer {
+    width: 100%;
+    padding: 40px 0 20px;
+    position: relative;
+    background: linear-gradient(to bottom, #f3eee0 0%, #b8d2b0 100%);
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+/* Collaboration section */
+.footer-collaboration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 5%;
+    margin-bottom: 50px;
+}
+
+.footer-collaboration h3 {
+    font-size: 1.2rem;
+    color: #3e573a;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.ajuntament-logo {
+    max-width: 140px;
+    height: auto;
+}
+
+/* Center section with logo and social */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.chinese-logo {
+    max-width: 120px;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(62, 87, 58, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-circle:hover {
+    background-color: #3e573a;
+}
+
+.social-circle i {
+    font-size: 20px;
+}
+
+/* Copyright section */
+.footer-copyright {
+    text-align: center;
+    padding: 0 5%;
+    border-top: 1px solid rgba(62, 87, 58, 0.2);
+    padding-top: 20px;
+}
+
+.footer-copyright p {
+    font-size: 0.85rem;
+    color: #5a7860;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .new-footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-collaboration {
+        margin-bottom: 30px;
+    }
+    
+    .footer-center {
+        margin-bottom: 30px;
+    }
+    
+    .chinese-logo {
+        max-width: 100px;
+        margin-bottom: 20px;
+    }
+    
+    .social-circle {
+        width: 35px;
+        height: 35px;
+    }
+}

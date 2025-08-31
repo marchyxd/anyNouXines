@@ -1,0 +1,273 @@
+/* Responsive styles for all pages */
+
+/* General responsive styles */
+@media screen and (max-width: 1024px) {
+    /* Tablet styles */
+    body {
+        font-size: 15px;
+    }
+
+    .main-nav {
+        padding: 10px 4%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .info-section, .moments-section, .faq-section {
+        padding: 40px 4%;
+    }
+
+    .gallery-header {
+        padding: 90px 4% 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Mobile styles */
+    body {
+        font-size: 14px;
+    }
+
+    /* Navigation improvements */
+    .navbar {
+        height: auto;
+    }
+
+    .main-nav {
+        padding: 8px 4%;
+        height: auto;
+    }
+
+    .logo .logo-image {
+        max-height: 40px;
+    }
+
+    .nav-wrapper.active {
+        padding-bottom: 15px;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links > li {
+        margin: 5px 0;
+    }
+
+    .dropdown-content {
+        width: 100%;
+        box-shadow: none;
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* Info section improvements */
+    .info-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .info-image {
+        height: 250px;
+        order: -1; /* Always show image first on mobile */
+    }
+
+    .info-text h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Gallery improvements */
+    .gallery-header {
+        padding: 80px 4% 30px;
+    }
+
+    .gallery-title {
+        font-size: 2rem;
+    }
+
+    .gallery-container {
+        padding: 20px 15px;
+    }
+
+    /* Lightbox improvements */
+    .lightbox-content {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .lightbox-nav-container {
+        bottom: 20px;
+        gap: 20px;
+    }
+
+    .lightbox-prev, .lightbox-next {
+        width: 50px;
+        height: 50px;
+    }
+
+    .lightbox-prev .arrow-icon, .lightbox-next .arrow-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Footer improvements */
+    .new-footer {
+        padding: 30px 0 15px;
+    }
+
+    .footer-collaboration {
+        padding: 0 4%;
+        margin-bottom: 30px;
+    }
+
+    .footer-center {
+        margin-bottom: 30px;
+    }
+
+    .chinese-logo {
+        max-width: 100px;
+        margin-bottom: 20px;
+    }
+
+    .social-circle {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Small mobile styles */
+    body {
+        font-size: 13px;
+    }
+
+    .main-nav {
+        padding: 8px 3%;
+    }
+
+    .logo .logo-image {
+        max-height: 36px;
+    }
+
+    .info-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .info-image {
+        height: 200px;
+    }
+
+    .gallery-title {
+        font-size: 1.8rem;
+    }
+
+    .gallery-container {
+        padding: 15px 10px;
+    }
+
+    .gallery-item {
+        margin-bottom: 15px;
+    }
+
+    .lightbox-content {
+        max-width: 95%;
+        padding: 8px;
+    }
+
+    .lightbox-nav-container {
+        bottom: 15px;
+        gap: 15px;
+    }
+
+    .lightbox-prev, .lightbox-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-prev .arrow-icon, .lightbox-next .arrow-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Any Nou Xines page specific */
+    .section-navigation {
+        bottom: 15px;
+        padding: 8px 15px;
+    }
+
+    .section-navigation .nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .section-navigation .arrow-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .horizontal-scroll-container {
+        scroll-snap-type: x proximity; /* Better for small screens */
+    }
+
+    #historia-continuacio .section-description,
+    #celebracio .section-description,
+    #global-celebration .section-description {
+        font-size: 1.1rem;
+    }
+
+    #historia-continuacio .initial-letter,
+    #celebracio .initial-letter,
+    #global-celebration .initial-letter {
+        font-size: 3.5rem;
+    }
+}
+
+/* Landscape orientation fixes */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .gallery-header {
+        padding: 70px 4% 20px;
+    }
+
+    .lightbox-content {
+        margin-top: 10px;
+    }
+
+    .lightbox-nav-container {
+        bottom: 10px;
+    }
+
+    /* Any Nou Xines page specific */
+    .horizontal-scroll-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .scroll-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #historia-continuacio .top-text {
+        top: 10%;
+    }
+
+    #historia-continuacio .bottom-text {
+        bottom: 10%;
+    }
+
+    #historia-continuacio .historia-tree,
+    #celebracio .historia-tree,
+    #global-celebration .historia-tree {
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+        margin: 60px auto;
+    }
+}

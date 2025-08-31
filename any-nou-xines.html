@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Any Nou Xinés</title>
     <link rel="stylesheet" href="css/any-nou-xines.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/fixes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsive-menu-fix.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* padding now in fixes.css */
         .language-selector {
             position: fixed;
             top: 20px;
@@ -53,9 +58,9 @@
             background-color: #e0e0e0;
         }
 
-        .section-navigation .nav-btn i {
-            color: #333;
-            font-size: 18px;
+        .section-navigation .arrow-icon {
+            width: 20px;
+            height: 20px;
         }
 
         .section-navigation .nav-btn.disabled {
@@ -81,10 +86,10 @@
     <!-- 章节导航按钮 -->
     <div class="section-navigation">
         <button class="nav-btn prev-section" aria-label="Secció anterior">
-            <i class="fas fa-chevron-left"></i>
+            <img src="assets/images/button/arrow left.svg" alt="Anterior" class="arrow-icon">
         </button>
         <button class="nav-btn next-section" aria-label="Secció següent">
-            <i class="fas fa-chevron-right"></i>
+            <img src="assets/images/button/arrow right.svg" alt="Següent" class="arrow-icon">
         </button>
     </div>
 
@@ -197,6 +202,8 @@
         </section>
     </div>
 
+    <script src="js/navigation.js"></script>
+    <script src="js/mobile-menu-fix.js"></script>
     <script>
         // 语言选择器逻辑
         const languageSelect = document.getElementById('language-select');

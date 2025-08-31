@@ -7,9 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navWrapper = document.querySelector('.nav-wrapper');
 
     if (mobileMenu && navWrapper) {
-        mobileMenu.addEventListener('click', () => {
+        mobileMenu.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             navWrapper.classList.toggle('active');
             mobileMenu.classList.toggle('active');
+            console.log('Mobile menu clicked!');
         });
     }
 

@@ -6,11 +6,60 @@
     <title>Any Nou Xinés - Pàgina no trobada</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/fixes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsive-menu-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para la página 404 */
+        body {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        
+        /* Mantenemos el estilo original del navbar */
+        
+        .error-container {
+            background-color: transparent;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .error-code {
+            font-size: 16rem;
+            font-weight: 500;
+            color: #3e573a; /* Verde oscuro */
+            margin: 0;
+            line-height: 1;
+            letter-spacing: normal;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            color: #333;
+            margin: 20px 0 40px;
+        }
+        
+        .btn-tornar-inici {
+            background-color: #dd6c48; /* Color naranja/rojo */
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-tornar-inici:hover {
+            background-color: #c85d3e;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
+    <div class="navbar">
         <nav class="main-nav">
             <div class="logo">
                 <a href="index.html">
@@ -21,7 +70,7 @@
                 <ul class="nav-links">
                     <li><a href="any-nou-xines.html" class="nav-link">ANY NOU XINÈS</a></li>
                     <li><a href="#" class="nav-link">ACTIVITATS</a></li>
-                    <li><a href="#galeria" class="nav-link">GALERIA</a></li>
+                    <li><a href="galeria-2025.html" class="nav-link">GALERIA</a></li>
                     <li><a href="qui-som.html" class="nav-link">QUI SOM</a></li>
                 </ul>
                 <p>|</p>
@@ -29,20 +78,24 @@
                     <div class="language-selector">
                         <select id="language-select">
                             <option value="cat" selected>CAT</option>
-                            <option value="es">ES</option>
-                            <option value="en">EN</option>
                         </select>
                     </div>
                 </div>
             </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
-    </header>
+    </div>
+    
+    <script src="js/navigation.js"></script>
+    <script src="js/mobile-menu-fix.js"></script>
 
     <main class="error-container">
         <div class="error-page">
             <h1 class="error-code">404</h1>
             <p class="error-message">Uups... Pàgina no trobada.</p>
-            <a href="index.html" class="btn-tornar-inici">Tornar Inici</a>
+            <a href="index.html" class="btn-tornar-inici">Tornar inici</a>
         </div>
     </main>
 
