@@ -14,15 +14,20 @@ body, html {
     padding: 0;
     font-family: 'Noto Sans', sans-serif;
     color: #333;
+    /* El color de fondo ahora está definido en fixes.css */
 }
 
-/* 导航栏样式 */
+/* 导航栏样式 - Commented out to avoid conflicts with navigation.css */
+/* 
 .header {
     background-color: #f0f4f0;
     box-shadow: none;
     padding: 10px 0;
 }
+*/
 
+/* Main nav styles moved to navigation.css */
+/*
 .main-nav {
     display: flex;
     justify-content: space-between;
@@ -31,6 +36,7 @@ body, html {
     margin: 0 auto;
     padding: 0 5%;
 }
+*/
 
 .logo a {
     display: flex;
@@ -235,9 +241,7 @@ body, html {
 .hero {
     text-align: center;
     padding: 100px 5%;
-    background-image: url('../assets/images/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
+    background: rgba(0,0,0,0.5);
     color: white;
 }
 
@@ -258,7 +262,7 @@ body, html {
     margin-top: 20px;
 }
 
-.about, .events, .gallery, .contact {
+.about, .events, .gallery {
     padding: 50px 5%;
     text-align: center;
 }
@@ -300,110 +304,9 @@ body, html {
     object-fit: cover;
 }
 
-.contact form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+/* Contact form styles moved to contact-form.css */
 
-.contact input, .contact textarea {
-    padding: 10px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-}
-
-.contact button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: var(--secondary-color);
-}
-
-/* FAQ 部分样式 */
-.faq-section {
-    background-color: white;
-    padding: 50px 5%;
-    text-align: center;
-}
-
-.faq-section h2 {
-    margin-bottom: 40px;
-    color: #000;
-    font-size: 2.5rem;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-}
-
-.faq-item {
-    border-top: 1px solid #000;
-    text-align: left;
-    padding: 0;
-}
-
-.faq-item:first-child {
-    border-top: none;
-}
-
-.faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    cursor: pointer;
-}
-
-.faq-question h3 {
-    font-size: 1rem;
-    color: #000;
-    margin: 0;
-    font-weight: 400;
-}
-
-.faq-toggle {
-    background: none;
-    border: none;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0;
-}
-
-.faq-toggle img {
-    width: 24px;
-    height: 24px;
-    opacity: 0.7;
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0;
-    background-color: white;
-}
-
-.faq-answer.active {
-    max-height: 300px;
-    padding: 15px 0;
-}
+/* FAQ styles moved to faq.css */
 
 /* 页脚样式 */
 .main-footer {
@@ -529,127 +432,14 @@ body, html {
     }
 }
 
-.moments-section {
-    text-align: center;
-    padding: 50px 0;
-    background-color: white;
-}
-
-.moments-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.moments-carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.moments-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 400px;
-}
-
-.moment-item {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: all 0.5s ease;
-    opacity: 1;
-    transform: scale(1);
-    z-index: 1;
-}
-
-.moment-item:nth-child(1) {
-    left: -100px;
-    transform: translateX(-50%) scale(0.8);
-}
-
-.moment-item:nth-child(2) {
-    left: 50%;
-    transform: translateX(-50%) scale(1);
-    z-index: 10;
-}
-
-.moment-item:nth-child(3) {
-    right: -100px;
-    transform: translateX(50%) scale(0.8);
-}
-
-.moment-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.moments-year {
-    margin-top: 30px;
-    font-size: 2rem;
-    color: #666;
-    font-weight: bold;
-}
-
-.moments-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-.moments-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.moments-dot.active {
-    background-color: #dd7050;
-    width: 16px;
-    height: 16px;
-}
+/* Carousel styles moved to carousel.css */
 
 @media (max-width: 768px) {
-    .moments-carousel {
-        max-width: 100%;
-        padding: 0 10px;
-    }
-
-    .moment-item {
-        width: 250px;
-        height: 250px;
-    }
-
-    .moment-item:nth-child(1) {
-        left: -50px;
-    }
-
-    .moment-item:nth-child(3) {
-        right: -50px;
-    }
 }
 
 /* 信息部分样式 */
 .info-section {
-    background-color: white;
+    background-color: transparent;
     padding: 50px 5%;
 }
 
@@ -665,7 +455,7 @@ body, html {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    background-color: white;
+    background-color: transparent;
     gap: 40px;
 }
 
@@ -704,9 +494,24 @@ body, html {
 }
 
 .info-image {
-    height: 300px;
-    background-color: #e0e0e0;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
     border: none;
+    overflow: hidden;
+}
+
+.tradicio-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.info-image:hover .tradicio-image {
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -716,7 +521,10 @@ body, html {
     }
 
     .info-image {
-        height: 250px;
+        height: 300px;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
     }
 }
 
@@ -770,8 +578,9 @@ body, html {
     background-color: #ff5252;
 }
 
-/* 移动端适配 */
+/* 移动端适配 - Mobile navigation moved to navigation.css */
 @media (max-width: 768px) {
+    /* These styles are now in navigation.css
     .nav-wrapper {
         display: none;
     }
@@ -790,6 +599,7 @@ body, html {
         width: 100%;
         background-color: white;
     }
+    */
 
     .error-container {
         height: 100vh;
@@ -935,86 +745,7 @@ document.addEventListener('click', (e) => {
 });
 */
 
-/* FAQ Section Styles */
-.faq-section {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.faq-section h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 2rem;
-}
-
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.faq-item {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    cursor: pointer;
-}
-
-.faq-question h3 {
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
-}
-
-.faq-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.faq-icon {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-icon {
-    transform: rotate(180deg);
-}
-
-.faq-toggle:hover .faq-icon {
-    transform: scale(1.1);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 1rem;
-    background-color: #fff;
-}
-
-.faq-answer.active {
-    max-height: 500px;
-    padding: 1rem;
-}
-
-.faq-answer p {
-    margin: 0;
-    color: #666;
-    line-height: 1.6;
-}
+/* FAQ styles moved to faq.css */
 
 /* 平板横屏适配 */
 @media screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
@@ -1068,32 +799,20 @@ document.addEventListener('click', (e) => {
     }
 
     .info-image {
-        height: 250px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .info-text h2 {
+        font-size: 1.3rem;
     }
 
     /* 时刻轮播调整 */
-    .moments-carousel {
-        max-width: 90%;
-    }
+    /* Carousel styles moved to carousel.css */
 
-    .moment-item {
-        width: 250px;
-        height: 250px;
-    }
-
-    .moments-year {
-        font-size: 1.5rem;
-    }
-
-    /* FAQ部分调整 */
-    .faq-section {
-        max-width: 90%;
-        margin: 1rem auto;
-    }
-
-    .faq-question h3 {
-        font-size: 0.9rem;
-    }
+    /* FAQ styles moved to faq.css */
 
     /* 页脚调整 */
     .footer-content {
@@ -1225,8 +944,13 @@ document.addEventListener('click', (e) => {
     }
 
     .info-image {
-        height: 200px;
+        height: 250px;
         border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 10px;
     }
 
     .info-text h2 {
@@ -1241,58 +965,9 @@ document.addEventListener('click', (e) => {
         margin-top: 10px;
     }
 
-    /* 时刻轮播调整 */
-    .moments-section {
-        padding: 30px 0;
-    }
+    /* Carousel styles moved to carousel.css */
 
-    .moments-carousel {
-        max-width: 100%;
-        padding: 0 10px;
-    }
-
-    .moments-wrapper {
-        height: 300px;
-    }
-
-    .moment-item {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-    }
-
-    .moment-item:nth-child(1) {
-        left: -30px;
-        transform: translateX(-50%) scale(0.7);
-    }
-
-    .moment-item:nth-child(2) {
-        left: 50%;
-        transform: translateX(-50%) scale(1);
-    }
-
-    .moment-item:nth-child(3) {
-        right: -30px;
-        transform: translateX(50%) scale(0.7);
-    }
-
-    .moments-year {
-        font-size: 1.2rem;
-    }
-
-    /* FAQ部分调整 */
-    .faq-section {
-        max-width: 100%;
-        padding: 0 10px;
-    }
-
-    .faq-question h3 {
-        font-size: 0.85rem;
-    }
-
-    .faq-answer p {
-        font-size: 0.8rem;
-    }
+    /* FAQ styles moved to faq.css */
 
     /* 页脚调整 */
     .footer-background {

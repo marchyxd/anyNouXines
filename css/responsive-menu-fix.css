@@ -1,0 +1,98 @@
+/* 最简化的移动菜单样式，消除所有可能的冲突 */
+
+/* 移动菜单按钮 - 默认隐藏 */
+.mobile-menu {
+    cursor: pointer;
+    z-index: 2000;
+    width: 40px;
+    height: 40px;
+    display: none; /* 默认隐藏在所有设备上 */
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 确保移动菜单图标可见 */
+.mobile-menu i {
+    font-size: 24px;
+    color: #333;
+    pointer-events: auto; /* 确保图标可点击 */
+}
+
+/* 菜单图标激活状态 */
+.mobile-menu.active i:before {
+    content: "\f00d" !important; /* X 图标 */
+    color: #ff6347;
+}
+
+/* 移动设备专用样式 */
+@media screen and (max-width: 768px) {
+    /* 在移动设备上显示菜单按钮 */
+    .mobile-menu {
+        display: flex !important; /* 仅在移动设备上显示 */
+    }
+    
+    /* 导航容器 - 默认在移动端隐藏 */
+    .nav-wrapper {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        display: none; /* 默认隐藏 */
+        flex-direction: column;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 1999;
+    }
+    
+    /* 激活时显示 */
+    .nav-wrapper.active {
+        display: flex !important;
+    }
+    
+    /* 导航链接列表 */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* 导航项目 */
+    .nav-links > li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    /* 导航链接 */
+    .nav-links > li > a {
+        display: block;
+        padding: 15px;
+        width: 100%;
+    }
+    
+    /* 下拉菜单内容 */
+    .dropdown-content {
+        display: none;
+        position: static;
+        width: 100%;
+        background-color: #f9f9f9;
+    }
+    
+    /* 激活时显示下拉菜单 */
+    .dropdown.active .dropdown-content {
+        display: block !important;
+    }
+    
+    /* 下拉菜单链接 */
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+        text-align: center;
+    }
+}

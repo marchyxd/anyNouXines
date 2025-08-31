@@ -1,0 +1,127 @@
+/* Estilos para el formulario de contacto */
+.contact {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 0;
+    background-color: #f3eee0;
+}
+
+.contact h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    color: #3e573a;
+    text-align: left;
+    font-weight: 500;
+    padding-left: 5%;
+}
+
+.contact-container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+/* Información de contacto a la izquierda */
+.contact-info {
+    width: 40%;
+    padding: 0;
+    text-align: left;
+}
+
+.contact-info-group {
+    margin-bottom: 2.5rem;
+}
+
+.contact-info-group p {
+    margin: 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+.contact-info-group strong {
+    color: #3e573a;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Formulario a la derecha */
+.contact-form-wrapper {
+    width: 60%;
+    padding: 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #3e573a;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    background-color: transparent;
+    outline: none;
+    color: #333;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #333;
+    opacity: 1;
+}
+
+.contact-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.contact-form button:hover {
+    background-color: #e25a41;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    .contact-info, 
+    .contact-form-wrapper {
+        width: 100%;
+    }
+
+    .contact h2 {
+        font-size: 28px;
+    }
+}

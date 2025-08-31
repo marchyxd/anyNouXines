@@ -5,11 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/navigation.css">
+        <link rel="stylesheet" href="css/fixes.css">
         <link rel="stylesheet" href="css/galeria-2025.css">
+        <link rel="stylesheet" href="css/carousel.css">
+        <link rel="stylesheet" href="css/faq.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/responsive-menu-fix.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
 <body>
-    <header class="header">
+    <div class="navbar">
         <nav class="main-nav">
             <div class="logo">
                 <a href="#home">
@@ -46,9 +52,28 @@
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
-    </header>
+    </div>
 
     <main>
+        <style>
+            /* Padding is now in fixes.css */
+            
+            /* Add more spacing between sections */
+            main > section {
+                margin-bottom: 5rem;
+            }
+            
+            /* Additional space for info cards */
+            .info-card {
+                margin-bottom: 3rem;
+            }
+            
+            /* Last info card doesn't need bottom margin */
+            .info-card:last-child {
+                margin-bottom: 0;
+            }
+        </style>
+        
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1>2025 龙年新春庆典</h1>
@@ -60,35 +85,55 @@
         <section class="info-section">
             <div class="info-container">
                 <div class="info-card">
-                    <div class="info-image"></div>
+                    <div class="info-image">
+                        <img src="assets/images/any.xines/lion.png" alt="Lleó xinès tradicional" class="tradicio-image">
+                    </div>
                     <div class="info-text">
-                        <h2>ANY NOU XINÈS</h2>
-                        <p>L'Any Nou Xinès és un viatge de colors, llums i tradicions.</p>
-                        <p>Una festa que reuneix famílies, celebra la renovació i obre un pont entre la cultura xinesa i Barcelona, per començar l'any amb esperança i bons desitjos.</p>
-                        <a href="#" class="info-button">Coneix la cultura</a>
+                        <h2>Queden <span id="countdown-days">--</span> dies per a l'Any Nou Xinès</h2>
+                        <p>Del 17 de febrer celebra la cultura xinesa a Barcelona: desfilades, dansa del drac, tallers i concerts.</p>
+                        <a href="#" class="info-button">Consulta programació</a>
                     </div>
                 </div>
 
                 <div class="info-card">
                     <div class="info-text">
-                        <h2>ANY DEL CAVALL - 2026</h2>
-                        <p>El zodiac xinès és un cicle de 12 animals, i cada un d'ells marca l'energia i els trets que inspiren la vida.</p>
-                        <p>El Cavall simbolitza llibertat i passió. El 2026 ens convida a avançar amb energia, valentia i confiança cap a nous horitzons.</p>
-                        <a href="#" class="info-button">Descobreix el teu Zodiac Xinès</a>
+                        <h2>Any Nou Xinès</h2>
+                        <p>L'Any Nou Xinès és un viatge de colors, llums i tradicions.</p>
+                        <p>Una festa que reuneix famílies, celebra la renovació i obre un pont entre la cultura xinesa i Barcelona, per començar l'any amb esperança i bons desitjos.</p>
+                        <a href="#" class="info-button">Coneix la cultura</a>
                     </div>
-                    <div class="info-image"></div>
+                    <div class="info-image">
+                        <img src="assets/images/any.xines/shiwu0002.png" alt="Cultura i tradicions xineses" class="tradicio-image">
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-image">
+                        <img src="assets/images/any.xines/Mask group.png" alt="Any del Cavall 2026" class="tradicio-image">
+                    </div>
+                    <div class="info-text">
+                        <h2>Any del Cavall - 2026</h2>
+                        <p>El zodíac xinès és un cicle de 12 animals, i cada any un d'ells marca l'energia i els trets que inspiren la vida.</p>
+                        <p>El Cavall simbolitza llibertat i passió. El 2026 ens convida a avançar amb energia, valentia i confiança cap a nous horitzons.</p>
+                        <a href="#" class="info-button">Descobreix el teu Zodíac Xinès</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="moments-section">
-            <h2>MOMENTS DE L'ANY NOU XINÈS</h2>
+            <h1>MOMENTS DE L'ANY NOU XINÈS</h1>
+            <h2>2025</h2>
             <div class="carousel" aria-roledescription="carousel" aria-label="Moments de l'Any Nou Xinès">
                 <div class="track" id="track" role="list"></div>
 
                 <div class="controls" aria-hidden="true">
-                    <button class="btn prev" title="Anterior" aria-label="Anterior"></button>
-                    <button class="btn next" title="Següent" aria-label="Següent"></button>
+                    <button class="btn prev" title="Anterior" aria-label="Anterior">
+                        <img src="assets/images/button/arrow left.svg" alt="Anterior" class="arrow-icon">
+                    </button>
+                    <button class="btn next" title="Següent" aria-label="Següent">
+                        <img src="assets/images/button/arrow right.svg" alt="Següent" class="arrow-icon">
+                    </button>
                 </div>
 
                 <div class="dots" id="dots" aria-label="Indicadors"></div>
@@ -96,253 +141,15 @@
             </div>
         </section>
 
-        <style>
-        :root {
-            --size: 220px;
-            --step: 120px;
-            --shadow: 80px;
-            --speed: 420ms;
-            --bg: #f6f6f6;
-        }
-
-        .moments-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 2rem 0;
-        }
-
-        .moments-section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .carousel {
-            position: relative;
-            width: min(100%, 960px);
-            margin-inline: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 64px 0;
-            isolation: isolate;
-        }
-
-        .track {
-            position: relative;
-            height: calc(var(--size) + var(--shadow)*2);
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slot {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            translate: -50% -50%;
-            width: var(--size);
-            height: var(--size);
-            border-radius: 50%;
-            clip-path: circle(50% at 50% 50%);
-            overflow: hidden;
-            z-index: 1;
-            transition: transform var(--speed) ease, z-index var(--speed) ease, filter var(--speed) ease;
-            filter: drop-shadow(0 0 var(--shadow) rgb(0 0 0 / .35));
-            background: #ddd center/cover no-repeat;
-        }
-
-        .slot.active {
-            transform: translate(calc(-50% + 0px), -50%) scale(1.08);
-            z-index: 9;
-            filter: drop-shadow(0 0 calc(var(--shadow)*1.25) rgb(0 0 0 / .5));
-        }
-
-        .controls {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            pointer-events: none;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            pointer-events: auto;
-            appearance: none;
-            border: none;
-            background: #fff;
-            width: 42px;
-            height: 42px;
-            display: grid;
-            place-items: center;
-            border-radius: 999px;
-            box-shadow: 0 10px 30px rgb(0 0 0 / .15);
-            cursor: pointer;
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 40px rgb(0 0 0 / .2);
-        }
-
-        .dots {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            margin-top: 28px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #bbb;
-            opacity: .6;
-            cursor: pointer;
-        }
-
-        .dot[aria-current="true"] {
-            background: #222;
-            opacity: 1;
-        }
-
-        @media (max-width: 640px) {
-            :root {
-                --size: 160px;
-                --step: 90px;
-                --shadow: 64px;
-            }
-        }
-        </style>
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = [
-                'assets/images/2025.jpg', 
-                'assets/images/2023.webp', 
-                'assets/images/2022.png', 
-                'assets/images/2021.jpeg', 
-                'assets/images/2017.jpg',
-                'assets/images/2014.jpg',
-                'assets/images/2025.jpg'
-            ];
-
-            const VISIBLE = 5;
-            const HALF = (VISIBLE - 1) / 2;
-
-            const track = document.getElementById('track');
-            const dotsWrap = document.getElementById('dots');
-            const prevBtn = document.querySelector('.prev');
-            const nextBtn = document.querySelector('.next');
-            const srStatus = document.getElementById('sr-status');
-
-            // Generate 5 fixed slots
-            const slots = Array.from({length: VISIBLE}, () => {
-                const el = document.createElement('figure');
-                el.className = 'slot';
-                el.setAttribute('role', 'listitem');
-                track.appendChild(el);
-                return el;
-            });
-
-            // Generate dots
-            images.forEach((_, i) => {
-                const d = document.createElement('span');
-                d.className = 'dot';
-                d.role = 'button';
-                d.tabIndex = 0;
-                d.ariaLabel = `Anar a l'element ${i+1}`;
-                d.addEventListener('click', () => goTo(i));
-                d.addEventListener('keydown', (e) => { 
-                    if(e.key === 'Enter' || e.key === ' '){ 
-                        goTo(i); 
-                    }
-                });
-                dotsWrap.appendChild(d);
-            });
-
-            let index = 0;
-
-            function mod(n, m){ return ((n % m) + m) % m; }
-
-            function setSlotStyle(el, realIdx) {
-                el.style.backgroundImage = `url(${images[realIdx]})`;
-            }
-
-            function layout() {
-                const step = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--step'));
-                for(let i = -HALF; i <= HALF; i++) {
-                    const el = slots[i+HALF];
-                    const x = i * step;
-                    const realIdx = mod(index + i, images.length);
-
-                    el.style.transform = `translate(calc(-50% + ${x}px), -50%) scale(${i===0?1.08:1})`;
-                    el.style.zIndex = (VISIBLE + 1) - Math.abs(i);
-                    el.classList.toggle('active', i===0);
-
-                    setSlotStyle(el, realIdx);
-                }
-                updateDots();
-                // 移除显示图片数量的文本
-                // srStatus.textContent = `Element ${index+1} / ${images.length}`;
-            }
-
-            function goTo(i){ index = mod(i, images.length); layout(); }
-            function next(){ goTo(index + 1); }
-            function prev(){ goTo(index - 1); }
-
-            nextBtn.addEventListener('click', next);
-            prevBtn.addEventListener('click', prev);
-            document.addEventListener('keydown', (e) => { 
-                if(e.key === 'ArrowRight') next(); 
-                if(e.key === 'ArrowLeft') prev(); 
-            });
-
-            // Drag / Swipe
-            let startX = null;
-            track.addEventListener('pointerdown', (e) => { startX = e.clientX; });
-            window.addEventListener('pointerup', (e) => {
-                if(startX === null) return;
-                const dx = e.clientX - startX;
-                startX = null;
-                if(Math.abs(dx) < 24) return;
-                dx < 0 ? next() : prev();
-            });
-
-            function updateDots() {
-                const dots = dotsWrap.querySelectorAll('.dot');
-                dots.forEach((d,i) => d.setAttribute('aria-current', i===index));
-            }
-
-            // Auto-play
-            let timer = setInterval(next, 2800);
-            ['pointerdown','keydown','click','focusin'].forEach(evt => {
-                document.addEventListener(evt, () => { 
-                    clearInterval(timer); 
-                    timer = null; 
-                }, { once: true });
-            });
-
-            layout();
-        });
-        </script>
-
         <section class="faq-section">
-            <h2>PREGUNTES FREQÜENTS (FAQ)</h2>
+            <h2>PREGUNTES FREQÜENTS</h2>
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>1. Quan se celebra l'Any Nou Xinès a Barcelona?</h3>
                         <button class="faq-toggle">
-                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                            <img src="assets/images/button/arrow under.svg" alt="Flecha abajo" class="faq-arrow-under">
+                            <img src="assets/images/button/arrow top.svg" alt="Flecha arriba" class="faq-arrow-top">
                         </button>
                     </div>
                     <div class="faq-answer">
@@ -353,7 +160,8 @@
                     <div class="faq-question">
                         <h3>2. On tenen lloc les activitats principals?</h3>
                         <button class="faq-toggle">
-                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                            <img src="assets/images/button/arrow under.svg" alt="Flecha abajo" class="faq-arrow-under">
+                            <img src="assets/images/button/arrow top.svg" alt="Flecha arriba" class="faq-arrow-top">
                         </button>
                     </div>
                     <div class="faq-answer">
@@ -364,7 +172,8 @@
                     <div class="faq-question">
                         <h3>3. Cal pagar entrada?</h3>
                         <button class="faq-toggle">
-                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                            <img src="assets/images/button/arrow under.svg" alt="Flecha abajo" class="faq-arrow-under">
+                            <img src="assets/images/button/arrow top.svg" alt="Flecha arriba" class="faq-arrow-top">
                         </button>
                     </div>
                     <div class="faq-answer">
@@ -375,7 +184,8 @@
                     <div class="faq-question">
                         <h3>4. Puc participar encara que no sigui de la comunitat xinesa?</h3>
                         <button class="faq-toggle">
-                            <img src="assets/images/icon.png" alt="Toggle" class="faq-icon">
+                            <img src="assets/images/button/arrow under.svg" alt="Flecha abajo" class="faq-arrow-under">
+                            <img src="assets/images/button/arrow top.svg" alt="Flecha arriba" class="faq-arrow-top">
                         </button>
                     </div>
                     <div class="faq-answer">
@@ -386,55 +196,133 @@
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="footer-sponsors">
-            <div class="sponsor-logos-container">
-                <div class="sponsor-logos">
-                    <img src="assets/images/Ajuntament-de-Barcelona.jpg" alt="Ajuntament de Barcelona">
-                    <img src="assets/images/Haier_logo.svg.png" alt="Haier">
-                    <img src="assets/images/elcym.png" alt="Assessoria Elcym">
-                    <img src="assets/images/metis.webp" alt="Media Logo">
-                </div>
+    <footer class="new-footer">
+        <div class="footer-collaboration">
+            <h3>Amb Col·laboració de:</h3>
+            <div class="footer-logo">
+                <img src="assets/images/Ajuntament-de-Barcelona.jpg" alt="Ajuntament de Barcelona" class="ajuntament-logo">
             </div>
         </div>
-        <div class="footer-background">
-            <div class="footer-content">
-                <div class="footer-social">
-                    <div class="social-logo">
-                        <img src="assets/images/logo.png" alt="Social Logo">
-                    </div>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><img src="assets/images/instagram.png" alt="Instagram"></a>
-                        <a href="#" class="social-icon"><img src="assets/images/instagram.png" alt="Instagram"></a>
-                        <a href="#" class="social-icon"><img src="assets/images/instagram.png" alt="Instagram"></a>
-                    </div>
-                </div>
+        
+        <div class="footer-center">
+            <img src="assets/images/logo.png" alt="Chinese Logo" class="chinese-logo">
+            
+            <div class="social-icons">
+                <a href="#" class="social-circle">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-circle">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-circle">
+                    <i class="fab fa-twitter"></i>
+                </a>
             </div>
-            <div class="footer-copyright">
-                <p>© 2025, Any Nou Xinès amb Barcelona 2025. Todos los derechos reservados.</p>
-            </div>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>© 2025, Any Nou Xinès amb Barcelona 2025. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- 添加备用菜单脚本 -->
+    <script src="js/menu-fix-backup.js"></script>
+    <script src="js/mobile-menu-fix.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/faq.js"></script>
+    <!-- 直接添加菜单功能，确保它肯定能工作 -->
+    <script>
+        // 在文档加载完成后以及窗口加载完成后都尝试初始化菜单
+        document.addEventListener('DOMContentLoaded', initializeMenu);
+        window.addEventListener('load', initializeMenu);
+        
+        // 直接实现菜单功能
+        function initializeMenu() {
+            console.log('直接初始化菜单');
+            
+            // 获取菜单元素
+            var mobileMenuBtn = document.querySelector('.mobile-menu');
+            var navWrapper = document.querySelector('.nav-wrapper');
+            
+            if (mobileMenuBtn && navWrapper) {
+                // 移除任何现有事件监听器
+                mobileMenuBtn.onclick = null;
+                var newMobileBtn = mobileMenuBtn.cloneNode(true);
+                mobileMenuBtn.parentNode.replaceChild(newMobileBtn, mobileMenuBtn);
+                mobileMenuBtn = newMobileBtn;
+                
+                // 添加点击事件
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    console.log('内联脚本：菜单按钮被点击');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // 切换菜单显示状态
+                    navWrapper.classList.toggle('active');
+                    mobileMenuBtn.classList.toggle('active');
+                    
+                    console.log('菜单状态:', navWrapper.classList.contains('active') ? '显示' : '隐藏');
+                });
+            } else {
+                console.error('未找到菜单元素');
+            }
+        }
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const sponsorLogos = document.querySelector('.sponsor-logos');
-            const logos = Array.from(sponsorLogos.children);
-            let currentIndex = 0;
-
-            function rotateLogos() {
-                // 移除第一�?Logo 并添加到末尾
-                const firstLogo = logos.shift();
-                sponsorLogos.appendChild(firstLogo);
-                logos.push(firstLogo);
+            // Countdown to Chinese New Year
+            function updateCountdown() {
+                const countdownElement = document.getElementById('countdown-days');
                 
-                currentIndex = (currentIndex + 1) % logos.length;
+                // Get current date
+                const currentDate = new Date();
+                
+                // Get next Chinese New Year date (February 17th)
+                // First check if we've already passed Feb 17 in current year
+                const currentYear = currentDate.getFullYear();
+                let chineseNewYearDate = new Date(currentYear, 1, 17); // Month is 0-indexed (1 = February)
+                
+                // If today's date is past Feb 17 of current year, use next year's date
+                if (currentDate > chineseNewYearDate) {
+                    chineseNewYearDate = new Date(currentYear + 1, 1, 17);
+                }
+                
+                // Calculate the difference in days
+                const timeDiff = chineseNewYearDate.getTime() - currentDate.getTime();
+                const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                
+                // Update the countdown element
+                countdownElement.textContent = daysDiff;
             }
-
-            // �?3 秒轮换一�?Logo
-            setInterval(rotateLogos, 1500);
+            
+            // Update countdown immediately
+            updateCountdown();
+            
+            // Update countdown every day
+            setInterval(updateCountdown, 86400000); // 86400000 ms = 24 hours
+            
+            // Sponsor logos rotation
+            const sponsorLogos = document.querySelector('.sponsor-logos');
+            
+            // Solo ejecutar si existe el elemento sponsor-logos
+            if (sponsorLogos && sponsorLogos.children && sponsorLogos.children.length > 0) {
+                const logos = Array.from(sponsorLogos.children);
+                let currentIndex = 0;
+    
+                function rotateLogos() {
+                    if (logos.length > 0) {
+                        const firstLogo = logos.shift();
+                        sponsorLogos.appendChild(firstLogo);
+                        logos.push(firstLogo);
+                        
+                        currentIndex = (currentIndex + 1) % logos.length;
+                    }
+                }
+    
+                setInterval(rotateLogos, 1500);
+            }
         });
     </script>
 </body>

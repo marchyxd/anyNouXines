@@ -1,64 +1,44 @@
 // Smooth scroll for navigation links with offset
 // (no inline onclicks; we'll attach listeners when DOM is ready)
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        if (anchor.getAttribute('href') === '#') return;
+        
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            // Solo proceder si el elemento existe
+            if (target) {
+                e.preventDefault();
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 });
 
 
-// Dropdown para dispositivos móviles
-const dropdownItems = document.querySelectorAll('.dropdown');
-dropdownItems.forEach(dropdown => {
-    const dropdownLink = dropdown.querySelector('.nav-link');
+// Estilos para enlaces de navegación (sin manejar la funcionalidad móvil)
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownLinks = document.querySelectorAll('.dropdown .nav-link');
     
     // Ensure no arrow is added
-    if (dropdownLink) {
-        dropdownLink.style.position = 'relative';
-        dropdownLink.style.paddingRight = '0';
-    }
-
-    dropdownLink.addEventListener('click', (e) => {
-        // Solo prevenir el comportamiento por defecto en móvil
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
-            dropdown.classList.toggle('active');
-            
-            // Cerrar otros dropdowns
-            dropdownItems.forEach(otherDropdown => {
-                if (otherDropdown !== dropdown) {
-                    otherDropdown.classList.remove('active');
-                }
-            });
-        }
+    dropdownLinks.forEach(link => {
+        link.style.position = 'relative';
+        link.style.paddingRight = '0';
     });
+    
+    // Nota: La funcionalidad de menú móvil se ha trasladado a mobile-menu-fix.js
 });
-
-// Cerrar dropdown al hacer click fuera
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
-        dropdownItems.forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    }
-});
-
-
-// Mobile menu toggle
-function toggleMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
 
 // Animate on scroll
 window.addEventListener('scroll', () => {
