@@ -160,7 +160,7 @@
         <nav class="main-nav">
             <div class="logo">
                 <a href="index.html">
-                    <img src="assets/images/logo.png" alt="Any Nou Xinés Logo" class="logo-image">
+                    <img src="assets/images/LOGO copy.png" alt="Any Nou Xinés Logo" class="logo-image">
                 </a>
             </div>
             <div class="nav-wrapper">
@@ -183,11 +183,12 @@
                 <p>|</p>
                 <div class="nav-actions">
                     <div class="language-selector">
-                        <select id="language-select">
-                            <option value="cat" selected>CAT</option>
-                            <option value="es">ES</option>
-                            <option value="cn">CN</option>
-                        </select>
+                        <a href="#" class="lang-current">CAT</a>
+                        <div class="lang-dropdown">
+                            <a href="#" class="lang-item active" data-lang="cat">CAT</a>
+                            <a href="#" class="lang-item" data-lang="es">ES</a>
+                            <a href="#" class="lang-item" data-lang="cn">CN</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -311,7 +312,7 @@
         </div>
         
         <div class="footer-center">
-            <img src="assets/images/logo.png" alt="Chinese Logo" class="chinese-logo">
+            <img src="assets/images/LOGO copy.png" alt="Chinese Logo" class="chinese-logo">
             
             <div class="social-icons">
                 <a href="#" class="social-circle">
@@ -332,6 +333,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/language-selector.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/mobile-menu-fix.js"></script>
     <script>

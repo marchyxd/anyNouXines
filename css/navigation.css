@@ -127,29 +127,86 @@
     display: inline-block;
     margin-left: 16px;
     background-color: transparent;
+    z-index: 1001;
 }
 
-.language-selector select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: transparent;
-    border: none;
+
+
+.language-selector .lang-current {
     color: #435947;
-    padding: 8px 32px 8px 12px;
-    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Body text */
+    font-family: 'IvyOra Display', 'Georgia', serif; /* Igual que .nav-link */
     font-size: 0.9rem;
-    font-weight: 400; /* Inter Regular */
+    font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     transition: color 0.3s ease;
-    position: relative;
-    outline: none;
+    padding: 8px;
+    text-decoration: none !important;
     background-color: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    display: inline-block;
 }
 
-.language-selector select:focus {
-    outline: none;
+.language-selector .lang-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border-radius: 5px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+}
+
+.language-selector:hover .lang-dropdown {
+    display: block;
+}
+
+.language-selector:hover .lang-current {
+    color: #92af83;
+    background-color: rgba(255,255,255,0.1);
+    text-decoration: none !important;
+}
+
+/* Evitar cualquier estilo de enlace por defecto */
+.language-selector a,
+.language-selector a:link,
+.language-selector a:visited,
+.language-selector a:hover,
+.language-selector a:active {
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
+}
+
+
+
+.language-selector .lang-dropdown .lang-item {
+    color: #435947;
+    padding: 12px 16px;
+    text-decoration: none !important;
+    display: block;
+    transition: background-color 0.3s ease;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+}
+
+.language-selector .lang-dropdown .lang-item:hover {
+    background-color: #f0f4f0;
+    color: #435947;
+    text-decoration: none !important;
+}
+
+.language-selector .lang-dropdown .lang-item.active {
+    background-color: #435947;
+    color: white;
 }
 
 
@@ -276,11 +333,7 @@
         background-color: transparent;
     }
 
-    .language-selector select {
-        width: 100%;
-        padding: 8px 32px 8px 12px;
-        background-color: transparent;
-    }
+
 
     .language-dropdown {
         position: static;

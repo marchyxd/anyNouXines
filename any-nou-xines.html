@@ -13,18 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* padding now in fixes.css */
-        .language-selector {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        .language-selector select {
-            background-color: white;
-            border: 1px solid #435947;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
+
 
         /* 新增的章节导航样�?*/
         .section-navigation {
@@ -101,15 +90,7 @@
                 height: 18px;
             }
 
-            .language-selector {
-                top: 15px;
-                right: 15px;
-            }
 
-            .language-selector select {
-                padding: 4px 8px;
-                font-size: 0.9rem;
-            }
         }
 
         /* Small mobile devices */
@@ -133,13 +114,7 @@
     </style>
 </head>
 <body>
-    <div class="language-selector">
-        <select id="language-select">
-            <option value="cat" selected>CAT</option>
-            <option value="es">ES</option>
-            <option value="cn">CN</option>
-        </select>
-    </div>
+
 
     <!-- 返回首页按钮 -->
     <a href="index.html" class="back-home-btn">
@@ -268,13 +243,29 @@
     <script src="js/navigation.js"></script>
     <script src="js/mobile-menu-fix.js"></script>
     <script>
-        // 语言选择器逻辑
-        const languageSelect = document.getElementById('language-select');
-        languageSelect.addEventListener('change', (e) => {
-            const selectedLanguage = e.target.value;
-            // 这里可以添加语言切换的逻辑
-            console.log(`Selected language: ${selectedLanguage}`);
+        // Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
+    </script>
+    <script>
+        // 语言选择器逻辑
+
+
 
         // 淡入效果�?JavaScript
         function checkFadeIn() {

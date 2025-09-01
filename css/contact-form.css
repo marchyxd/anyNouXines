@@ -79,6 +79,8 @@
     background-color: transparent;
     outline: none;
     color: #435947;
+    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Body text */
+    font-weight: 300; /* Avenir Book */
 }
 
 .contact-form input::placeholder,

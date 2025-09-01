@@ -193,78 +193,7 @@ p, div, span, li, a,
     gap: 15px;
 }
 
-.language-selector {
-    position: relative;
-    display: inline-block;
-}
 
-.language-selector select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    color: white;
-    border: none;
-    padding: 8px 30px 8px 15px;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
-    min-width: 70px;
-    text-align: center;
-    background: transparent;
-    border: none;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-}
-
-.language-selector select option {
-    background-color: white;
-    color: #435947;
-    padding: 10px;
-    text-align: center;
-}
-
-
-
-/* 下拉菜单容器 */
-.language-selector {
-    position: relative;
-}
-
-.language-selector .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #5a7860;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    z-index: 1000;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.language-selector .dropdown-menu a {
-    display: block;
-    padding: 10px 15px;
-    color: #435947;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.language-selector .dropdown-menu a:hover {
-    background-color: #f0f0f0;
-}
-
-.language-selector .dropdown-menu a.active {
-    background-color: #5a7860;
-    color: white;
-}
 
 .contact-btn {
     background-color: var(--white);
