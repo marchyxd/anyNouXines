@@ -41,7 +41,7 @@
 .contact-info-group p {
     margin: 0;
     line-height: 1.5;
-    color: #333;
+    color: #435947;
 }
 
 .contact-info-group strong {
@@ -78,12 +78,12 @@
     font-size: 1rem;
     background-color: transparent;
     outline: none;
-    color: #333;
+    color: #435947;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: #333;
+    color: #435947;
     opacity: 1;
 }
 

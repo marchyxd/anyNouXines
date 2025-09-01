@@ -19,7 +19,7 @@
 /* 确保移动菜单图标可见 */
 .mobile-menu i {
     font-size: 24px;
-    color: #333;
+    color: #435947;
     pointer-events: auto; /* 确保图标可点击 */
 }
 

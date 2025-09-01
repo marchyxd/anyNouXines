@@ -2,11 +2,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Better selection of images for the carousel
     const images = [
-        'assets/images/2025/1610_Foto.1742648999 1.jpg',
-        'assets/images/2025/1666_Foto.1742649032.jpg',
-        'assets/images/2025/1790_Foto.1742649084 1.jpg',
-        'assets/images/2025/1908_Foto.1742649139 1.jpg',
-        'assets/images/any.xines/final.jpg'
+        'assets/images/2025.jpg',
+        'assets/images/2023.webp',
+        'assets/images/2022.png',
+        'assets/images/2021.jpeg',
+        'assets/images/2017.jpg'
     ];
 
     const VISIBLE = 5;
@@ -54,13 +54,64 @@ document.addEventListener('DOMContentLoaded', function() {
     function setSlotStyle(el, realIdx) {
         // Create image element for better control
         el.innerHTML = '';
+        
+        // Determinar el año y el enlace según la imagen
+        const yearMap = {
+            'assets/images/2025.jpg': { year: '2025', link: 'galeria-2025.html' },
+            'assets/images/2023.webp': { year: '2023', link: '404.html' },
+            'assets/images/2022.png': { year: '2022', link: '404.html' },
+            'assets/images/2021.jpeg': { year: '2021', link: '404.html' },
+            'assets/images/2017.jpg': { year: '2017', link: '404.html' }
+        };
+        const imageInfo = yearMap[images[realIdx]];
+        
+        // Create link element
+        const link = document.createElement('a');
+        link.href = imageInfo.link;
+        link.style.display = 'block';
+        link.style.width = '100%';
+        link.style.height = '100%';
+        link.style.textDecoration = 'none';
+        link.style.position = 'relative';
+        
         const img = document.createElement('img');
         img.src = images[realIdx];
-        img.alt = `Carousel image ${realIdx + 1}`;
+        img.alt = `Any ${imageInfo.year}`;
         img.style.width = '100%';
         img.style.height = '100%';
         img.style.objectFit = 'cover';
-        el.appendChild(img);
+        img.style.transition = 'all 0.3s ease';
+        
+        // Create year overlay for hover
+        const yearOverlay = document.createElement('div');
+        yearOverlay.textContent = imageInfo.year;
+        yearOverlay.style.position = 'absolute';
+        yearOverlay.style.top = '50%';
+        yearOverlay.style.left = '50%';
+        yearOverlay.style.transform = 'translate(-50%, -50%)';
+        yearOverlay.style.color = 'white';
+        yearOverlay.style.fontSize = '2rem';
+        yearOverlay.style.fontWeight = 'bold';
+        yearOverlay.style.textShadow = '2px 2px 4px rgba(0,0,0,0.8)';
+        yearOverlay.style.opacity = '0';
+        yearOverlay.style.transition = 'opacity 0.3s ease';
+        yearOverlay.style.pointerEvents = 'none';
+        yearOverlay.style.zIndex = '10';
+        
+        // Add hover effects
+        link.addEventListener('mouseenter', function() {
+            yearOverlay.style.opacity = '1';
+            img.style.filter = 'brightness(0.7)';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            yearOverlay.style.opacity = '0';
+            img.style.filter = 'brightness(1)';
+        });
+        
+        link.appendChild(img);
+        link.appendChild(yearOverlay);
+        el.appendChild(link);
     }
 
     // Define positions for large screens - reduced spacing between images

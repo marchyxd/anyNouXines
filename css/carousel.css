@@ -23,7 +23,7 @@
 .moments-section h2 {
     text-align: center;
     margin-bottom: 3rem;
-    color: #333;
+    color: #435947;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -144,7 +144,7 @@
 }
 
 .dot[aria-current="true"] {
-    background: #222;
+    background: #435947;
     opacity: 1;
 }
 

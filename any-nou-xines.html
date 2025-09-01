@@ -20,8 +20,8 @@
             z-index: 1000;
         }
         .language-selector select {
-            background: transparent;
-            border: 1px solid #333;
+            background-color: white;
+            border: 1px solid #435947;
             padding: 5px 10px;
             border-radius: 5px;
         }
@@ -30,12 +30,13 @@
         .section-navigation {
             position: fixed;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 20px;
+            left: auto;
+            transform: none;
             display: flex;
             gap: 15px;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: white;
             padding: 10px 20px;
             border-radius: 30px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -51,7 +52,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .section-navigation .nav-btn:hover {
@@ -66,6 +67,62 @@
         .section-navigation .nav-btn.disabled {
             opacity: 0.3;
             cursor: not-allowed;
+        }
+
+        /* Mobile responsive improvements */
+        @media (max-width: 768px) {
+            .section-navigation {
+                bottom: 15px;
+                right: 15px;
+                padding: 8px 15px;
+                gap: 10px;
+            }
+
+            .section-navigation .nav-btn {
+                width: 35px;
+                height: 35px;
+            }
+
+            .section-navigation .arrow-icon {
+                width: 16px;
+                height: 16px;
+            }
+
+            .back-home-btn {
+                top: 15px;
+                left: 15px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .language-selector {
+                top: 15px;
+                right: 15px;
+            }
+
+            .language-selector select {
+                padding: 4px 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .section-navigation {
+                bottom: 10px;
+                right: 10px;
+                padding: 6px 12px;
+            }
+
+            .section-navigation .nav-btn {
+                width: 30px;
+                height: 30px;
+            }
+
+            .section-navigation .arrow-icon {
+                width: 14px;
+                height: 14px;
+            }
         }
     </style>
 </head>
