@@ -173,10 +173,40 @@ body, html {
         padding: 0;
         margin-left: 0;
         order: 2;
+        display: flex;
+        flex-direction: column;
     }
 
     .historia-text {
         margin-bottom: 20px;
+        order: 1;
+    }
+
+    .historia-image {
+        width: 100%;
+        max-height: 30vh;
+        margin-top: 15px;
+        order: 2;
+    }
+
+    /* Específico para historia-origen en móvil */
+    #historia-origen .historia-text {
+        margin-bottom: 20px;
+        order: 1;
+    }
+
+    #historia-origen .historia-image {
+        width: 100%;
+        max-height: 30vh;
+        margin-top: 15px;
+        order: 2;
+    }
+
+    #historia-origen .historia-image img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
     }
 
     .section-title {
@@ -192,11 +222,7 @@ body, html {
         padding: 0;
     }
 
-    .historia-image {
-        width: 100%;
-        max-height: 30vh;
-        margin-top: 15px;
-    }
+
 
     .meihua-tree {
         width: 100%;
@@ -239,11 +265,6 @@ body, html {
     margin-left: 50px;
 }
 
-.historia-text {
-    width: 100%;
-    margin-bottom: 30px;
-}
-
 .historia-image {
     width: 100%;
     max-height: 70vh;
@@ -262,6 +283,13 @@ body, html {
 .historia-image img:hover {
     transform: scale(1.05);
 }
+
+.historia-text {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+
 
 /* Highlight and initial letter styles */
 .section-description .highlight {
@@ -615,7 +643,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px; /* 图像之间的间距 */
+    gap: 50px; 
 }
 
 #celebracio .meihua-tree {
@@ -624,14 +652,14 @@ body, html {
 }
 
 #celebracio .lion-image {
-    max-width: 80%; /* 进一步增大狮子图像 */
+    max-width: 80%; 
 }
 
 #celebracio .women-image {
-    max-width: 35%; /* 稍微缩小女性图像 */
+    max-width: 35%; 
 }
 
-/* 高亮样式 */
+
 #celebracio .highlight-dansa,
 #celebracio .highlight-lleo,
 #celebracio .highlight-sobres,
@@ -647,13 +675,46 @@ body, html {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 
     #celebracio .historia-content {
-        height: 100%;
-        justify-content: space-between;
+        height: auto;
+        flex-direction: column;
+        gap: 20px;
         padding: 20px 0;
+    }
+
+    #celebracio .top-text {
+        order: 1;
+        margin-bottom: 15px;
+    }
+
+    #celebracio .middle-text {
+        order: 2;
+        margin-bottom: 20px;
+    }
+
+    #celebracio .historia-tree {
+        order: 3;
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin: 25px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        transform: none;
+        left: auto;
+        top: auto;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    #celebracio .bottom-text {
+        order: 4;
+        margin-top: 15px;
     }
 
     #celebracio .top-text,
@@ -661,7 +722,7 @@ body, html {
     #celebracio .bottom-text {
         position: relative;
         width: 100%;
-        padding: 15px 0;
+        padding: 0;
         transform: none;
         left: auto;
         top: auto;
@@ -669,62 +730,34 @@ body, html {
     }
 
     #celebracio .section-description {
-        font-size: 1.1rem;
+        font-size: 1rem;
         line-height: 1.6;
         text-align: left;
         max-width: 100%;
         margin: 0;
+        padding: 0 10px;
     }
 
     #celebracio .initial-letter {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-right: 8px;
-    }
-
-    #celebracio .historia-tree {
-        position: relative;
-        width: 100%;
-        height: auto;
-        order: 2;
-        margin: 20px 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: none;
-        left: auto;
-        top: auto;
-        gap: 15px;
-    }
-
-    #celebracio .meihua-tree {
-        max-width: 70%;
-        max-height: 25vh;
-        width: auto;
-        height: auto;
+        line-height: 1;
     }
 
     #celebracio .lion-image {
-        max-width: 65%;
-        max-height: 25vh;
+        max-width: 45%;
+        max-height: 20vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
     }
 
     #celebracio .women-image {
-        max-width: 50%;
-        max-height: 20vh;
-    }
-
-    #celebracio .top-text {
-        order: 1;
-    }
-
-    #celebracio .middle-text {
-        order: 3;
-        text-align: left;
-    }
-
-    #celebracio .bottom-text {
-        order: 4;
+        max-width: 40%;
+        max-height: 18vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
     }
 }
 
@@ -829,45 +862,27 @@ body, html {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 
     #global-celebration .historia-content {
-        height: 100%;
-        justify-content: space-between;
+        height: auto;
+        flex-direction: column;
+        gap: 25px;
         padding: 20px 0;
     }
 
-    #global-celebration .top-text,
-    #global-celebration .bottom-text {
-        position: relative;
-        width: 100%;
-        padding: 15px 0;
-        transform: none;
-        left: auto;
-        top: auto;
-        bottom: auto;
-    }
-
-    #global-celebration .section-description {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        text-align: left;
-        max-width: 100%;
-        margin: 0;
-    }
-
-    #global-celebration .initial-letter {
-        font-size: 3rem;
-        margin-right: 8px;
+    #global-celebration .top-text {
+        order: 1;
+        margin-bottom: 20px;
     }
 
     #global-celebration .historia-tree {
+        order: 2;
         position: relative;
         width: 100%;
         height: auto;
-        order: 2;
-        margin: 20px 0;
+        margin: 25px 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -876,20 +891,147 @@ body, html {
         top: auto;
     }
 
-    #global-celebration .final-image {
-        max-width: 85%;
-        max-height: 45vh;
-        width: auto;
-        height: auto;
-    }
-
-    #global-celebration .top-text {
-        order: 1;
-    }
-
     #global-celebration .bottom-text {
         order: 3;
+        margin-top: 20px;
+    }
+
+    #global-celebration .top-text,
+    #global-celebration .bottom-text {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        transform: none;
+        left: auto;
+        top: auto;
+        bottom: auto;
+    }
+
+    #global-celebration .section-description {
+        font-size: 1rem;
+        line-height: 1.6;
         text-align: left;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    #global-celebration .initial-letter {
+        font-size: 2.5rem;
+        margin-right: 8px;
+        line-height: 1;
+    }
+
+    #global-celebration .final-image {
+        max-width: 80%;
+        max-height: 35vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+}
+
+/* Enhanced mobile responsive improvements */
+@media (max-width: 768px) {
+    /* Improved text and image spacing for all sections */
+    .section-description {
+        margin-bottom: 20px !important;
+        padding: 0 15px !important;
+        font-size: 1rem !important;
+    }
+
+    .initial-letter {
+        font-size: 2.2rem !important;
+        line-height: 1 !important;
+        margin-right: 6px !important;
+    }
+
+    /* Better image sizing for mobile */
+    .meihua-tree,
+    .tradicio-image,
+    .lion-image,
+    .women-image,
+    .final-image {
+        object-fit: contain !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Improved spacing between text blocks */
+    .top-text,
+    .middle-text,
+    .bottom-text {
+        margin: 15px 0 !important;
+        padding: 10px 0 !important;
+    }
+
+    /* Enhanced image containers for better layout */
+    .historia-tree {
+        margin: 30px 0 !important;
+        padding: 10px !important;
+    }
+
+    /* Better organization for celebration section images */
+    #celebracio .historia-tree {
+        flex-direction: row !important;
+        justify-content: space-evenly !important;
+        align-items: center !important;
+        gap: 10px !important;
+        margin: 25px 0 !important;
+    }
+
+    #celebracio .lion-image,
+    #celebracio .women-image {
+        flex: 1 !important;
+        max-width: 48% !important;
+        max-height: 22vh !important;
+    }
+
+    /* Improved text flow around images */
+    .historia-content {
+        gap: 20px !important;
+    }
+
+    /* Better readability */
+    .section-title {
+        margin-bottom: 20px !important;
+        font-size: 1.8rem !important;
+        text-align: center !important;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .section-description {
+        font-size: 0.95rem !important;
+        padding: 0 10px !important;
+    }
+
+    .initial-letter {
+        font-size: 2rem !important;
+    }
+
+    .section-title {
+        font-size: 1.6rem !important;
+    }
+
+    #celebracio .historia-tree {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    #celebracio .lion-image,
+    #celebracio .women-image {
+        max-width: 70% !important;
+        max-height: 20vh !important;
+    }
+
+    .meihua-tree,
+    .final-image {
+        max-width: 85% !important;
+        max-height: 25vh !important;
     }
 }
 
