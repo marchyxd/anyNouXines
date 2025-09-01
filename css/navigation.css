@@ -1,3 +1,5 @@
+/* Las fuentes están definidas en style.css */
+
 /* 导航栏整体布局 */
 .navbar {
     background-color: #ffffff;
@@ -7,6 +9,7 @@
     left: 0;
     width: 100%;
     z-index: 1000;
+    font-family: 'IvyOra Display', 'Georgia', serif; /* Títulos de navegación */
 }
 
 /* This style is kept but not used - all pages now use navbar instead */
@@ -47,6 +50,7 @@
     padding: 0;
     gap: 24px;
     background-color: transparent;
+    font-family: 'IvyOra Display', 'Georgia', serif; /* Títulos */
 }
 
 .nav-links > li {
@@ -58,7 +62,8 @@
     text-decoration: none;
     color: #435947;
     text-transform: uppercase;
-    font-weight: 600;
+    font-family: 'IvyOra Display', 'Georgia', serif; /* Títulos */
+    font-weight: 700; /* Playfair Display Bold */
     font-size: 0.9rem;
     letter-spacing: 1px;
     padding: 8px 0;
@@ -106,7 +111,9 @@
     color: #435947;
     text-decoration: none;
     text-transform: uppercase;
+    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Cuerpo de texto */
     font-size: 0.8rem;
+    font-weight: 300; /* Inter Light */
     transition: background-color 0.2s ease;
     background-color: transparent;
 }
@@ -130,7 +137,9 @@
     border: none;
     color: #435947;
     padding: 8px 32px 8px 12px;
+    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Cuerpo de texto */
     font-size: 0.9rem;
+    font-weight: 400; /* Inter Regular */
     text-transform: uppercase;
     cursor: pointer;
     transition: color 0.3s ease;

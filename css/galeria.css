@@ -2,7 +2,8 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Noto Sans', Arial, sans-serif;
+    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Cuerpo de texto - Avenir Book original */
+    font-weight: 300; /* Avenir Book */
     overflow-x: hidden;
 }
 

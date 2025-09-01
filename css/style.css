@@ -1,4 +1,29 @@
 /* 导入新的导航栏和全局样式 */
+/* Definir fuentes locales */
+@font-face {
+    font-family: 'IvyOra Display';
+    src: url('../assets/typography/IvyOra display-20250901T000910Z-1-001/IvyOra display/IvyOraDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../assets/typography/Avenir-20250901T000905Z-1-001/Avenir/AvenirLTStd-Book.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../assets/typography/Avenir-20250901T000905Z-1-001/Avenir/AvenirLTStd-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --primary-green: #5a7860;
     --secondary-green: #92af83;
@@ -6,15 +31,45 @@
     --white: #ffffff;
     --text-color: #435947;
     --transition: all 0.3s ease;
+    --title-font: 'IvyOra Display', 'Georgia', serif; /* IvyOra Bold original */
+    --body-font: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Avenir Book original */
 }
 
 /* 全局样式 */
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: var(--body-font);
+    font-weight: 300; /* Avenir Book */
     color: #435947;
     /* El color de fondo ahora está definido en fixes.css */
+}
+
+/* Estilos de títulos globales */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.hero h1,
+.gallery-title,
+.moments-title,
+.impulsors-section h1 {
+    font-family: var(--title-font);
+    font-weight: 700; /* IvyOra Display Bold */
+}
+
+/* Navegación también usa títulos */
+.nav-link {
+    font-family: var(--title-font);
+    font-weight: 600;
+}
+
+/* Cuerpo de texto */
+body, html,
+.hero p,
+.section-description,
+p, div, span, li, a,
+.dropdown-item {
+    font-family: var(--body-font);
+    font-weight: 300; /* Avenir Book */
 }
 
 /* 导航栏样式 - Commented out to avoid conflicts with navigation.css */
