@@ -11,7 +11,7 @@
     text-align: left;
     margin-bottom: 40px;
     font-size: 2.2rem;
-    color: #3e573a; /* Verde oscuro para el título */
+    color: #3e573a; /* Dark green for title */
     font-weight: 600;
     padding-left: 20px;
 }
@@ -23,7 +23,7 @@
 }
 
 .faq-item {
-    border-bottom: 1px solid #ccc; /* Línea divisoria entre preguntas */
+    border-bottom: 1px solid #ccc; /* Divider line between questions */
     background: transparent;
     margin-bottom: 0;
     padding: 0;
@@ -62,7 +62,7 @@
     height: 40px;
 }
 
-/* Ocultar/mostrar las flechas según el estado */
+/* Hide/show arrows based on state */
 .faq-arrow-under,
 .faq-arrow-top {
     position: absolute;

@@ -48,7 +48,7 @@ body, html {
     color: #3e573a;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    font-family: 'IvyOra Display', 'Georgia', serif; /* Títulos - IvyOra Bold original */
+    font-family: 'IvyOra Display', 'Georgia', serif; /* Titles - Original IvyOra Bold */
     font-weight: 700; /* IvyOra Display Bold */
     opacity: 0;
     transform: translateY(-20px);
@@ -60,7 +60,7 @@ body, html {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 30px;
-    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Cuerpo de texto - Avenir Book original */
+    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Body text - Original Avenir Book */
     font-weight: 300; /* Avenir Book */
     max-width: 800px;
     margin-left: auto;

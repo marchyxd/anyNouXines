@@ -1,5 +1,5 @@
-/* 导入新的导航栏和全局样式 */
-/* Definir fuentes locales */
+/* Import navigation and global styles */
+/* Define local fonts */
 @font-face {
     font-family: 'IvyOra Display';
     src: url('../assets/typography/IvyOra display-20250901T000910Z-1-001/IvyOra display/IvyOraDisplay-Bold.ttf') format('truetype');
@@ -31,21 +31,21 @@
     --white: #ffffff;
     --text-color: #435947;
     --transition: all 0.3s ease;
-    --title-font: 'IvyOra Display', 'Georgia', serif; /* IvyOra Bold original */
-    --body-font: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Avenir Book original */
+    --title-font: 'IvyOra Display', 'Georgia', serif; /* Original IvyOra Bold */
+    --body-font: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* Original Avenir Book */
 }
 
-/* 全局样式 */
+/* Global styles */
 body, html {
     margin: 0;
     padding: 0;
     font-family: var(--body-font);
     font-weight: 300; /* Avenir Book */
     color: #435947;
-    /* El color de fondo ahora está definido en fixes.css */
+    /* Background color is now defined in fixes.css */
 }
 
-/* Estilos de títulos globales */
+/* Global title styles */
 h1, h2, h3, h4, h5, h6,
 .section-title,
 .hero h1,
@@ -56,13 +56,13 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 700; /* IvyOra Display Bold */
 }
 
-/* Navegación también usa títulos */
+/* Navigation also uses titles */
 .nav-link {
     font-family: var(--title-font);
     font-weight: 600;
 }
 
-/* Cuerpo de texto */
+/* Body text */
 body, html,
 .hero p,
 .section-description,

@@ -1,6 +1,6 @@
 /* Fix styles for the fixed top menu */
 body {
-    background-color: #f3eee0 !important; /* Fondo beige claro para todas las páginas - importante para sobrescribir otros estilos */
+    background-color: #f3eee0 !important; /* Light beige background for all pages - important to override other styles */
 }
 
 /* Make sure the navbar is always on top */
